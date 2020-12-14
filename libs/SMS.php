@@ -2,8 +2,11 @@
 
 namespace libs;
 
+use cdcchen\alidayu\ResponseException;
 use common\models\SMSLog;
+use common\models\User;
 use Yii;
+use yii\helpers\Json;
 
 /**
  * 短信发送类
@@ -13,87 +16,220 @@ use Yii;
 class SMS
 {
     /**
-     * @var string 网关地址
-     */
-    private static $api_sms = 'http://smssh1.253.com/msg/send/json';
-    private static $api_vcode = 'http://smssh1.253.com/msg/variable/json';
-    /**
-     * @var string 账号
-     */
-    private static $acc_sms = 'N3122277';
-    /**
-     * @var string 密码
-     */
-    private static $pwd_sms = '4OVEMYA9if4946';
-    /**
      * @var bool 回调开关
      */
     private static $callback = true;
 
     /**
-     * 短信发送
+     * 发送验证码
      *
-     * @param $mobile
-     * @param $content
-     * @param $needstatus
+     * @param str $mobile
+     * @param bool $ajax
      *
-     * @return string
+     * @return array|int
      */
-    public static function send($mobile, $content, $needstatus = 'true')
+    public static function vcode($mobile, $ajax = false)
     {
-        $params = [
-            'account'  => self::$acc_sms,
-            'password' => self::$pwd_sms,
-            'msg' => urlencode($content),
-            'phone' => $mobile,
-            'report' => $needstatus
-        ];
+        $countDown = self::getCountDown();
 
-        Yii::error(self::$api_sms . "\n" . print_r($params, true), 'sms');
-
-        $result = self::post(self::$api_sms, $params);
-
-        return $result;
-    }
-
-    /**
-     * POST 请求方法
-     *
-     * @param $url
-     * @param $params
-     *
-     * @return mixed
-     */
-    private static function post($url, $params)
-    {
-        $params = json_encode($params);
-        $header =  [
-            'Content-Type: application/json; charset=utf-8',
-        ];
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 60);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-
-        $result = curl_exec($ch);
-
-        if(false == $result){
-            $result = curl_error($ch);
-        }else{
-            $rsp = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            if(200 != $rsp){
-                $result = "请求状态 " . $rsp . " " . curl_error($ch);
+        if ($countDown) {
+            if ($ajax) {
+                return self::callback(0, 0, '你还需要等 ' . $countDown . ' 秒才能再次发送验证码！');
+            } else {
+                return '你还需要等 ' . $countDown . ' 秒才能再次发送验证码！';
             }
         }
 
-        curl_close($ch);
+        $vcode = Utils::getRand(6, true);
 
-        return $result;
+        /* @var \cdcchen\yii\alidayu\Client $client */
+        $client = Yii::$app->get('alidayu');
+
+        try {
+
+            $result = $client->sendSms($mobile, '身份验证', 'SMS_14276746', ['code' => $vcode], '9cubic.com');
+
+            if ($result->getSuccess()) {
+                $status = 1;
+                $message = '验证码发送成功！';
+
+                Yii::$app->session->set('sms_send', time());
+                Yii::$app->session->set('send_vcode', $vcode);
+            } else {
+                $status = 0;
+                $message = '验证码发送失败！';
+            }
+
+            if ($ajax) {
+                return self::callback($status, $status, $message);
+            } else {
+                return $status ? '' : $message;
+            }
+        } catch (ResponseException $e) {
+
+            $status = 0;
+            $message = '验证码发送失败！';
+
+            if ($ajax) {
+                return self::callback($status, $status, $message);
+            } else {
+                return $status ? '' : $message;
+            }
+        }
+    }
+
+    /**
+     * 发送虚拟卡
+     *
+     * @param str $mobile
+     * @param \common\models\Goods $goods
+     *
+     * @return array|int
+     */
+    public static function card($mobile, $goods)
+    {
+        $sign = '苏州爱拼活动';
+        $template = 'SMS_63090315';
+
+        /* @var \cdcchen\yii\alidayu\Client $client */
+        $client = Yii::$app->get('alidayu');
+
+        try {
+            $result = $client->sendSms($mobile, $sign, $template, [], '9cubic.com');
+
+            if ($result->getSuccess()) {
+                return true;
+            }
+        } catch (ResponseException $e) {
+            return false;
+        }
+
+        return false;
+    }
+
+    /**
+     * 发送实物提醒
+     *
+     * @param str $mobile
+     * @param \common\models\Goods $goods
+     *
+     * @return array|int
+     */
+    public static function goods($mobile, $goods)
+    {
+        $sign = '苏州爱拼活动';
+        $template = 'SMS_63090315';
+
+        /* @var \cdcchen\yii\alidayu\Client $client */
+        $client = Yii::$app->get('alidayu');
+
+        try {
+            $result = $client->sendSms($mobile, $sign, $template, [], '9cubic.com');
+
+            if ($result->getSuccess()) {
+                return true;
+            }
+        } catch (ResponseException $e) {
+            return false;
+        }
+
+        return false;
+    }
+
+    /**
+     * 回调方法
+     *
+     * @param int $return
+     * @param int $result
+     * @param string $message
+     * @param string $code
+     *
+     * @return array|int
+     */
+    public static function callback($return = 0, $result = 0, $message = '', $code = '')
+    {
+        $return = ['return' => $return, 'result' => $result, 'message' => $message, 'code' => $code];
+        if (!self::$callback) {
+            return $return;
+        }
+        echo Json::encode($return);
+        Yii::$app->end();
+    }
+
+    /**
+     * 短信发送 60 秒倒计时
+     *
+     * @return int
+     */
+    public static function getCountDown()
+    {
+        $countDown = time() - Yii::$app->getSession()->get('sms_send', 0);
+        if ($countDown > 60) {
+            $countDown = 0;
+        } else {
+            if ($countDown < 0) {
+                $countDown = 60;
+            } else {
+                $countDown = 60 - $countDown;
+            }
+        }
+
+        return $countDown;
+    }
+
+    /**
+     * 获取验证码
+     *
+     * @return mixed
+     */
+    public static function getVcode()
+    {
+        $sendTime = Yii::$app->session->get('sms_send', 0);
+
+        if ($sendTime + 1800 < time()) {
+            self::destory();
+        }
+
+        return Yii::$app->session->get('send_vcode', '');
+    }
+
+    /**
+     * 注销
+     */
+    public static function destory()
+    {
+        Yii::$app->session->set('sms_send', 0);
+        Yii::$app->session->set('send_vcode', '');
+    }
+
+    /**
+     * 校验验证码
+     *
+     * @param $str
+     *
+     * @return string
+     */
+    public static function validator($str)
+    {
+        $sendTime = Yii::$app->session->get('sms_send', 0);
+        $vcode = Yii::$app->session->get('send_vcode', '');
+
+        if (!$vcode) {
+            return '请发送验证码';
+        }
+
+        if (!$str) {
+            return '验证码不可为空';
+        }
+
+        if ($vcode != $str) {
+            return '验证码不正确';
+        }
+
+        if ($sendTime + 1800 < time()) {
+            return '验证码已过期';
+        }
+
+        return '';
     }
 }

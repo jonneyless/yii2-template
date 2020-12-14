@@ -3,29 +3,34 @@
 namespace admin\controllers;
 
 use Yii;
-use admin\models\Admin;
+use common\models\Admin;
 use yii\data\ActiveDataProvider;
-use yii\web\NotFoundHttpException;
 use yii\filters\AccessControl;
+use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * 管理员管理类
- *
- * @auth_key    admin
- * @auth_name   管理员管理
+ * AdminController implements the CRUD actions for Admin model.
  */
 class AdminController extends Controller
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'rules' => $this->getRules('admin'),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'matchCallback' => function ($rule, $action) {
+                            return !Yii::$app->user->getIsGuest() && Yii::$app->user->id == 1;
+                        },
+                    ],
+                ],
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -37,21 +42,13 @@ class AdminController extends Controller
     }
 
     /**
-     * 管理员管理列表
-     *
-     * @auth_key    *
-     * @auth_parent admin
-     *
-     * @return string
+     * Lists all Admin models.
+     * @return mixed
      */
     public function actionIndex()
     {
-        if(Yii::$app->user->id != 1){
-            return $this->redirect(['view', 'id' => Yii::$app->user->id]);
-        }
-
         $dataProvider = new ActiveDataProvider([
-            'query' => Admin::find()->where(['<>', 'status', Admin::STATUS_DELETE]),
+            'query' => Admin::find(),
         ]);
 
         return $this->render('index', [
@@ -60,16 +57,11 @@ class AdminController extends Controller
     }
 
     /**
-     * 查看管理员详情
+     * Displays a single Admin model.
      *
-     * @auth_key    admin_view
-     * @auth_name   查看管理员
-     * @auth_parent admin
+     * @param string $id
      *
-     * @param $id
-     *
-     * @return string
-     * @throws \yii\web\NotFoundHttpException
+     * @return mixed
      */
     public function actionView($id)
     {
@@ -79,48 +71,44 @@ class AdminController extends Controller
     }
 
     /**
-     * 新增活动管理员
-     *
-     * @auth_key    admin_create
-     * @auth_name   添加管理员
-     * @auth_parent admin
-     *
-     * @return string|\yii\web\Response
+     * Creates a new Admin model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
      */
     public function actionCreate()
     {
         $model = new Admin();
-        $model->setScenario('create');
 
-        if($model->load(Yii::$app->request->post()) && $model->save()){
-            return $this->redirect(['view', 'id' => $model->id]);
-        }else{
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->password) {
+                $model->setPassword($model->password);
+                $model->generateAuthKey();
+                if ($model->save()) {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
+            } else {
+                $model->addError('password', '请输入密码！');
+            }
         }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
     /**
-     * 编辑活动管理员
-     *
-     * @auth_key    admin_update
-     * @auth_name   更新管理员
-     * @auth_parent admin
-     *
-     * @param $id
-     *
-     * @return string|\yii\web\Response
-     * @throws \yii\web\NotFoundHttpException
+     * Updates an existing Admin model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param string $id
+     * @return mixed
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $model->setScenario('update');
 
-        if($model->load(Yii::$app->request->post()) && $model->save()){
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
-        }else{
+        } else {
             return $this->render('update', [
                 'model' => $model,
             ]);
@@ -128,128 +116,30 @@ class AdminController extends Controller
     }
 
     /**
-     * 将管理员移动到回收站
-     *
-     * @auth_key    admin_delete
-     * @auth_name   删除管理员
-     * @auth_parent admin
-     *
-     * @param $id
-     *
-     * @return \yii\web\Response
-     * @throws \yii\web\NotFoundHttpException
+     * Deletes an existing Admin model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param string $id
+     * @return mixed
      */
-    public function actionRemove($id)
+    public function actionDelete($id)
     {
-        $model = $this->findModel($id);
-        $model->status = $model::STATUS_DELETE;
-        $model->save();
+        $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * 管理员回收站管理
-     *
-     * @auth_key    admin_recycle
-     * @auth_name   管理员回收站
-     * @auth_parent admin
-     *
-     * @return string
-     */
-    public function actionRecycle()
-    {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Admin::find()->where(['=', 'status', Admin::STATUS_DELETE]),
-        ]);
-
-        return $this->render('recycle', [
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-
-    /**
-     * 将管理员从回收站恢复
-     *
-     * @auth_key    admin_recycle
-     * @auth_name   管理员回收站
-     * @auth_parent admin
-     *
-     * @param $id
-     *
-     * @return string
-     * @throws \yii\web\NotFoundHttpException
-     */
-    public function actionRestore($id)
-    {
-        $model = $this->findModel($id);
-        $model->status = $model::STATUS_ACTIVE;
-        $model->save();
-
-        return $this->redirect(['recycle']);
-    }
-
-    /**
-     * 彻底删除管理员
-     *
-     * @auth_key    admin_recycle
-     * @auth_name   管理员回收站
-     * @auth_parent admin
-     *
-     * @param $id
-     *
-     * @return \yii\web\Response
-     * @throws \Exception
-     * @throws \Throwable
-     * @throws \yii\db\StaleObjectException
-     * @throws \yii\web\NotFoundHttpException
-     */
-    public function actionDelete($id)
-    {
-        $model = $this->findModel($id);
-        $model->delete();
-
-        return $this->redirect(['recycle']);
-    }
-
-    /**
-     * 修改密码
-     *
-     * @auth_key    *
-     * @auth_parent admin
-     *
-     * @return string|\yii\web\Response
-     * @throws \yii\web\NotFoundHttpException
-     */
-    public function actionReset()
-    {
-        $model = $this->findModel(Yii::$app->user->id);
-        $model->setScenario('reset');
-
-        if($model->load(Yii::$app->request->post()) && $model->save()){
-            Yii::$app->user->logout();
-
-            return $this->goHome();
-        }else{
-            return $this->render('reset', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    /**
-     * 通用模型查询
-     *
-     * @param $id
-     *
-     * @return \admin\models\Admin
-     * @throws NotFoundHttpException
+     * Finds the Admin model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param string $id
+     * @return Admin the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if(($model = Admin::findOne($id)) !== NULL){
+        if (($model = Admin::findOne($id)) !== null) {
             return $model;
-        }else{
+        } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }

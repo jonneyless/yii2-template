@@ -7,33 +7,24 @@ use Yii;
 /**
  * This is the model class for table "{{%user}}".
  *
- * @property string $user_id ID
- * @property string $open_id 外部平台 ID
- * @property string $area_id 地区 ID
- * @property int $type 类型
- * @property string $referee 推荐人
- * @property string $company 所属公司
- * @property string $store 所属店铺
- * @property string $username 用户名
- * @property string $auth_key 密钥
- * @property string $access_token 登录 Token
- * @property string $device 设备 Token
- * @property string $device_type 设备类型
- * @property string $password_hash 密码
- * @property string $tradepass_hash 交易密码
- * @property string $avatar 头像
- * @property string $mobile 手机号码
- * @property string $amount 账户金额
- * @property string $debt 欠款
- * @property int $created_at 注册时间
- * @property int $updated_at 登录时间
- * @property int $expire_at 过期时间
- * @property int $status 状态
+ * @property string $id
+ * @property string $password_hash
+ * @property string $auth_key
+ * @property string $name
+ * @property string $mobile
+ * @property string $created_at
+ * @property string $updated_at
+ * @property string $signup_at
+ * @property string $first_pay
+ * @property integer $is_vip
+ * @property integer $sign_status
+ * @property integer $login_status
+ * @property integer $status
  */
 class User extends \yii\db\ActiveRecord
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public static function tableName()
     {
@@ -41,51 +32,36 @@ class User extends \yii\db\ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['area_id', 'type', 'referee', 'company', 'store', 'created_at', 'updated_at', 'expire_at', 'status'], 'integer'],
-            [['username', 'auth_key', 'access_token', 'password_hash', 'mobile'], 'required'],
-            [['amount', 'debt'], 'number'],
-            [['open_id', 'device_type'], 'string', 'max' => 64],
-            [['username', 'access_token', 'device', 'password_hash', 'tradepass_hash'], 'string', 'max' => 255],
+            [['created_at', 'updated_at', 'signup_at', 'first_pay', 'is_vip', 'sign_status', 'login_status', 'status'], 'integer'],
+            [['auth_key'], 'required'],
+            [['name'], 'string', 'max' => 60],
             [['auth_key'], 'string', 'max' => 32],
-            [['avatar'], 'string', 'max' => 150],
-            [['mobile'], 'string', 'max' => 60],
-            [['username'], 'unique'],
-            [['mobile'], 'unique'],
+            [['mobile'], 'string', 'max' => 13],
         ];
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function attributeLabels()
     {
         return [
-            'user_id' => 'ID',
-            'open_id' => '外部平台 ID',
-            'area_id' => '地区 ID',
-            'type' => '类型',
-            'referee' => '推荐人',
-            'company' => '所属公司',
-            'store' => '所属店铺',
-            'username' => '用户名',
-            'auth_key' => '密钥',
-            'access_token' => '登录 Token',
-            'device' => '设备 Token',
-            'device_type' => '设备类型',
-            'password_hash' => '密码',
-            'tradepass_hash' => '交易密码',
-            'avatar' => '头像',
+            'id' => '用户 ID',
+            'auth_key' => '登录保持密钥',
+            'name' => '姓名',
             'mobile' => '手机号码',
-            'amount' => '账户金额',
-            'debt' => '欠款',
             'created_at' => '注册时间',
-            'updated_at' => '登录时间',
-            'expire_at' => '过期时间',
+            'updated_at' => '更新时间',
+            'signup_at' => '登录时间',
+            'first_pay' => '首次支付',
+            'is_vip' => 'VIP 用户',
+            'sign_status' => '签约状态',
+            'login_status' => '登录状态',
             'status' => '状态',
         ];
     }

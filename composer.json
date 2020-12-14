@@ -1,45 +1,56 @@
 {
-    "name": "jonneyless/yii2-mall",
-    "description": "The App Mall Base Yii 2",
-    "keywords": ["yii2", "framework", "mall"],
+    "name": "jonneyless/yii2-app-cms",
+    "description": "The Content Manage System Project Based Yii Framework",
+    "keywords": [
+        "yii2",
+        "framework",
+        "cms",
+        "project template"
+    ],
+    "homepage": "http://www.ijony.com/",
+    "language": "PHP",
     "type": "project",
-    "license": "BSD-3-Clause",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jonneyless",
+            "email": "jonneyless@163.com",
+            "homepage": "http://www.ijony.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/jonneyless/yii2-app-cms/issues",
+        "wiki": "https://github.com/jonneyless/yii2-app-cms/wiki",
+        "source": "https://github.com/jonneyless/yii2-app-cms"
+    },
     "minimum-stability": "stable",
     "require": {
         "php": ">=5.4.0",
-        "yiisoft/yii2": "~2.0.6",
-        "yiisoft/yii2-jui": "^2.0",
-        "yiisoft/yii2-bootstrap": "~2.0.0",
-        "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
-        "jonneyless/yii2-helper-extend": "dev-master",
-        "jonneyless/yii2-admin-asset": "dev-master",
-        "maxwen/yii2-easy-wechat": "^1.0",
-        "liasica/xinge-app": "^1.1",
-        "2amigos/qrcode-library": "^1.1",
-        "hustshenl/yii2-aliyun-sms": "^1.0"
+        "yiisoft/yii2": ">=2.0.6",
+        "yiisoft/yii2-jui": "*",
+        "yiisoft/yii2-bootstrap": "*",
+        "yiisoft/yii2-swiftmailer": "*",
+        "yiisoft/yii2-imagine": "*",
+        "2amigos/yii2-qrcode-helper": "*",
+        "cdcchen/yii2-alidayu": "*",
+        "moonlandsoft/yii2-phpexcel": "*"
     },
     "require-dev": {
-        "yiisoft/yii2-debug": "~2.0.0",
-        "yiisoft/yii2-gii": "~2.0.0",
-        "yiisoft/yii2-faker": "~2.0.0",
-        "codeception/base": "^2.2.3",
-        "codeception/verify": "~0.3.1"
+        "yiisoft/yii2-debug": "*",
+        "yiisoft/yii2-gii": "*",
+        "yiisoft/yii2-faker": "*"
     },
     "config": {
         "process-timeout": 1800
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
-        },
-        {
-            "url": "https://github.com/jonneyless/yii2-admin-asset.git",
-            "type": "vcs"
-        },
-        {
-            "url": "https://github.com/jonneyless/yii2-helper-extend.git",
-            "type": "vcs"
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
         }
-    ]
+    },
+    "scripts": {
+        "post-install-cmd": "php init --env=Development --overwrite=n"
+    }
 }

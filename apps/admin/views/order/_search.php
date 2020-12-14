@@ -2,42 +2,37 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-use yii\bootstrap\ActiveField;
-
-if(!isset($delivery)){
-    $delivery = false;
-}
+use common\widgets\ActiveField;
 
 /* @var $this yii\web\View */
-/* @var $model admin\models\search\Order */
+/* @var $model common\models\search\Order */
 /* @var $form yii\bootstrap\ActiveForm */
 ?>
 
-<div class="ibox-content m-b-sm border-bottom">
+<div class="group-search">
+
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
         'fieldClass' => ActiveField::className(),
     ]); ?>
 
-    <div class="row">
+    <?php echo $form->field($model, 'begin_time')->betweenDate('end_time', ['has_time' => false]) ?>
 
-        <div class="col-sm-2">
-            <?php echo $form->field($model, 'order_id')->textInput() ?>
-        </div>
+    <div class="form-group">
+        <?php echo Html::radio('export', false, ['value' => '', 'id' => 'export']) ?> &nbsp;
+        <label class="control-label" for="export">不导出</label>
+        <?php echo Html::radio('export', false, ['value' => 'refund', 'id' => 'export_refund']) ?> &nbsp;
+        <label class="control-label" for="export_refund">导出退款订单</label>
+        <?php echo Html::radio('export', false, ['value' => 'delivery', 'id' => 'export_delivery']) ?> &nbsp;
+        <label class="control-label" for="export_delivery">导出发货订单</label>
+    </div>
 
-        <?php if(!$delivery){ ?>
-            <div class="col-sm-2">
-                <?php echo $form->field($model, 'status')->dropDownList($model::getStatusData(), ['prompt' => '请选择']) ?>
-            </div>
-        <?php } ?>
-
-        <div class="col-sm-1">
-            <label>&nbsp;</label>
-            <?= Html::submitButton('搜索', ['class' => 'btn btn-primary form-control']) ?>
-        </div>
-
+    <div class="form-group">
+        <?= Html::submitButton('搜索', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('重置', ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
+
 </div>

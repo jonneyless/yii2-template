@@ -1,17 +1,21 @@
 <?php
 
+use yii\helpers\Html;
+
 /* @var $this yii\web\View */
-/* @var $model admin\models\Category */
+/* @var $model common\models\Category */
 
-$this->title = '编辑分类：' . $model->name;
+$this->title = '更新分类：' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => '分类管理', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->category_id]];
-$this->params['breadcrumbs'][] = '编辑';
-$this->params['buttons'] = [
-    ['label' => '管理', 'url' => ['index'], 'options' => ['class' => 'btn btn-info']],
-];
+$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = '更新';
 ?>
+<div class="category-update">
 
-<?= $this->render('_form', [
-    'model' => $model,
-]) ?>
+    <h1><?= Html::encode($this->title) ?></h1>
+
+    <?= $this->render('_form', [
+        'model' => $model,
+    ]) ?>
+
+</div>

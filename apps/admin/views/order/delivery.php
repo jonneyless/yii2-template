@@ -1,50 +1,36 @@
 <?php
 
-use ijony\admin\grid\GridView;
-use yii\helpers\Url;
 use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
+use common\widgets\ActiveField;
 
 /* @var $this yii\web\View */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-/* @var $data \admin\models\Order */
+/* @var $model common\models\Order */
 
-$this->title = '发货管理';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = '订单发货：' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => '订单管理', 'url' => ['index']];
+$this->params['breadcrumbs'][] = '订单发货';
 ?>
+<div class="event-update">
 
-<div class="ibox">
-    <?php echo $this->render('_search', ['model' => $searchModel, 'delivery' => true]); ?>
+    <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'layoutFix' => true,
-        'columns' => [
-            'order_id',
-            'amount',
-            'consignee',
-            'phone',
-            [
-                'attribute' => 'created_at',
-                'format' => [
-                    'datetime',
-                    'yyyy-MM-dd HH:mm:ss'
-                ],
-            ],
+    <div class="event-form">
 
-            [
-                'class' => 'ijony\admin\grid\ActionColumn',
-                'headerOptions' => [
-                    'class' => 'text-right',
-                ],
-                'template' => '{view} {delivery}',
-                'buttons' => [
-                    'delivery' => function($url, $model, $key){
-                        $url = Url::to(['order/delivery-done', 'id' => $key]);
-                        return Html::a('发货', $url, ['class' => 'btn-white btn btn-xs']);
-                    }
-                ],
-            ],
-        ],
-    ]); ?>
+        <?php $form = ActiveForm::begin([
+            'fieldClass' => ActiveField::className(),
+        ]); ?>
+
+        <?= $form->field($model, 'delivery_name')->textInput(['maxlength' => true]) ?>
+
+        <?= $form->field($model, 'delivery_number')->textInput(['maxlength' => true]) ?>
+
+        <div class="form-group">
+            <?= Html::submitButton('确认发货', ['class' => 'btn btn-primary']) ?>
+        </div>
+
+        <?php ActiveForm::end(); ?>
+
+    </div>
+
 </div>
-

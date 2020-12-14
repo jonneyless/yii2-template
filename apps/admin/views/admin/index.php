@@ -1,54 +1,44 @@
 <?php
 
-use ijony\admin\grid\GridView;
+use yii\helpers\Html;
+use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '管理员管理';
+$this->title = '系统管理员';
 $this->params['breadcrumbs'][] = $this->title;
-$this->params['buttons'] = [
-    ['label' => '新增', 'url' => ['create'], 'options' => ['class' => 'btn btn-success']],
-    ['label' => '回收站', 'url' => ['recycle'], 'options' => ['class' => 'btn btn-default']],
-];
 ?>
+<div class="admin-index">
 
-<div class="ibox">
+    <h1><?= Html::encode($this->title) ?></h1>
+
+    <p>
+        <?= Html::a('添加管理员', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'layoutFix' => true,
         'columns' => [
-            [
-                'attribute' => 'id',
-                'header' => '#',
-            ],
-            [
-                'attribute' => 'role_id',
-                'value' => function($data){
-                    return $data->getRoleName();
-                },
-            ],
-            [
-                'attribute' => 'store_id',
-                'value' => function($data){
-                    return $data->getStoreName();
-                },
-            ],
+            'id',
             'username',
-            [
-                'attribute' => 'status',
-                'format' => 'raw',
-                'value' => function($data){
-                    return $data->getStatusLabel();
-                },
-            ],
+            'status',
 
             [
-                'class' => 'ijony\admin\grid\ActionColumn',
-                'headerOptions' => [
-                    'class' => 'text-right',
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {update} {delete}',
+                'buttons' => [
+                    'view' => function ($url, $model, $key) {
+                        return Html::a('查看', $url);
+                    },
+                    'update' => function ($url, $model, $key) {
+                        return "| " . Html::a('编辑', $url);
+                    },
+                    'delete' => function ($url, $model, $key) {
+                        if ($model->id != 1) {
+                            return "| " . Html::a('删除', $url);
+                        }
+                    },
                 ],
-                'template' => '{view} {update} {remove}',
             ],
         ],
     ]); ?>

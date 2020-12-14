@@ -1,33 +1,19 @@
 <?php
 
+use yii\helpers\Html;
+
 /* @var $this yii\web\View */
-/* @var $model admin\models\form\Goods */
+/* @var $model common\models\Goods */
 
-$this->title = '编辑商品：' . $model->name;
+$this->title = '更新商品：' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => '商品管理', 'url' => ['index']];
-if($model->goods->status == \admin\models\Goods::STATUS_OFFLINE){
-    $this->params['breadcrumbs'][] = ['label' => '商品审核', 'url' => ['index']];
-}
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->goods_id]];
-$this->params['breadcrumbs'][] = '编辑';
-
-if($model->goods->status == \admin\models\Goods::STATUS_OFFLINE){
-    $this->params['buttons'] = [
-        ['label' => '审核', 'url' => ['approval'], 'options' => ['class' => 'btn btn-info']],
-    ];
-}else{
-    $this->params['buttons'] = [
-        ['label' => '管理', 'url' => ['index'], 'options' => ['class' => 'btn btn-info']],
-    ];
-}
+$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = '更新';
 ?>
+<div class="goods-update">
 
-<?php if($model->goods->store && $model->goods->store->is_offline){ ?>
-<?= $this->render('_offline_form', [
-    'model' => $model,
-]) ?>
-<?php }else{ ?>
-<?= $this->render('_form', [
-    'model' => $model,
-]) ?>
-<?php } ?>
+    <?= $this->render('_form', [
+        'model' => $model,
+    ]) ?>
+
+</div>

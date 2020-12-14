@@ -1,6 +1,7 @@
 <?php
 
-use ijony\admin\grid\GridView;
+use yii\helpers\Html;
+use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -8,34 +9,42 @@ use ijony\admin\grid\GridView;
 $this->title = '回收站';
 $this->params['breadcrumbs'][] = ['label' => '商品管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-$this->params['buttons'] = [
-    ['label' => '管理', 'url' => ['index'], 'options' => ['class' => 'btn btn-info']],
-];
 ?>
+<div class="goods-index">
 
-<div class="ibox">
-    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+    <h1><?= Html::encode($this->title) ?></h1>
 
+    <p>
+        <?= Html::a('商品管理', ['index'], ['class' => 'btn btn-success']) ?>
+    </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'layoutFix' => true,
         'columns' => [
-            'goods_id:integer:#',
-            [
-                'attribute' => 'category_id',
-                'value' => function($data){
-                    return $data->category ? $data->category->name : '';
-                },
-            ],
+            'id',
             'name',
+            'stock',
+            'sales',
 
             [
-                'class' => 'ijony\admin\grid\ActionColumn',
-                'headerOptions' => [
-                    'class' => 'text-right',
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {virtual} {outlet}',
+                'buttons' => [
+                    'view' => function ($url, $model, $key) {
+                        /* @var $model \common\models\Goods */
+                        return Html::a('查看', ['goods/view', 'id' => $model->id]);
+                    },
+                    'virtual' => function ($url, $model, $key) {
+                        if ($model->is_virtual == 1) {
+                            return "| " . Html::a('虚拟卡', ['goods/virtual', 'id' => $model->id]);
+                        }
+                    },
+                    'outlet' => function ($url, $model, $key) {
+                        if ($model->is_virtual == 1) {
+                            return "| " . Html::a('门店', ['goods/outlet', 'id' => $model->id]);
+                        }
+                    },
                 ],
-                'template' => '{restore} {delete}',
-            ]
+            ],
         ],
     ]); ?>
 </div>

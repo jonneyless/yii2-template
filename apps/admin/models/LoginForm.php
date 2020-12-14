@@ -1,6 +1,8 @@
 <?php
 namespace admin\models;
 
+use common\models\Admin;
+use libs\Utils;
 use Yii;
 use yii\base\Model;
 
@@ -15,9 +17,8 @@ class LoginForm extends Model
 
     private $_user;
 
-
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function rules()
     {
@@ -32,13 +33,13 @@ class LoginForm extends Model
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function attributeLabels()
     {
         return [
-            'username' => '账号',
-            'password' => '密码',
+            'username' => '用户名',
+            'password' => '密　码',
             'rememberMe' => '保持登录',
         ];
     }
@@ -55,7 +56,7 @@ class LoginForm extends Model
         if (!$this->hasErrors()) {
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, '错误得账号或密码！');
+                $this->addError($attribute, 'Incorrect username or password.');
             }
         }
     }
@@ -63,20 +64,12 @@ class LoginForm extends Model
     /**
      * Logs in a user using the provided username and password.
      *
-     * @return bool whether the user is logged in successfully
+     * @return boolean whether the user is logged in successfully
      */
     public function login()
     {
         if ($this->validate()) {
-            /* @var $user \admin\models\Admin */
-            $user = $this->getUser();
-
-            if(Yii::$app->user->login($user, $this->rememberMe ? 3600 * 24 * 30 : 0)){
-                $user->signin_at = time();
-                $user->save();
-
-                return true;
-            }
+            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         } else {
             return false;
         }

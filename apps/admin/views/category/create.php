@@ -1,16 +1,20 @@
 <?php
 
+use yii\helpers\Html;
+
 /* @var $this yii\web\View */
-/* @var $model admin\models\Category */
+/* @var $model common\models\Category */
 
 $this->title = '添加分类';
 $this->params['breadcrumbs'][] = ['label' => '分类管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-$this->params['buttons'] = [
-    ['label' => '管理', 'url' => ['index'], 'options' => ['class' => 'btn btn-info']],
-];
 ?>
+<div class="category-create">
 
-<?= $this->render('_form', [
-    'model' => $model,
-]) ?>
+    <h1><?= Html::encode($this->title) ?></h1>
+
+    <?= $this->render('_form', [
+        'model' => $model,
+    ]) ?>
+
+</div>

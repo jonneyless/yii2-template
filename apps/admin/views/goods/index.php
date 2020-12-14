@@ -1,104 +1,54 @@
 <?php
 
-use ijony\admin\grid\GridView;
+use yii\helpers\Html;
+use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-/* @var $data \admin\models\Goods */
 
 $this->title = '商品管理';
 $this->params['breadcrumbs'][] = $this->title;
-$this->params['buttons'] = [
-    ['label' => '新增', 'url' => ['create'], 'options' => ['class' => 'btn btn-success']],
-    ['label' => '审核', 'url' => ['approval'], 'options' => ['class' => 'btn btn-danger']],
-    ['label' => '导出', 'url' => ['export'], 'options' => ['class' => 'btn btn-info']],
-    ['label' => '回收站', 'url' => ['recycle'], 'options' => ['class' => 'btn btn-default']],
-];
-
-$buttons = [
-    'mode' => function ($url, $model, $key) {
-        $options = [
-            'title' => '货品',
-            'class' => 'btn-white btn btn-xs',
-        ];
-        return \yii\helpers\Html::a('货品', ['goods/mode/index', 'id' => $key], $options);
-    },
-    'comment' => function ($url, $model, $key) {
-        $options = [
-            'title' => '加评论',
-            'class' => 'btn-white btn btn-xs',
-        ];
-        return \yii\helpers\Html::a('加评论', ['comment/create', 'goods_id' => $key], $options);
-    },
-];
-
-if(Yii::$app->user->identity->store && Yii::$app->user->identity->store->pospal_app_id && Yii::$app->user->identity->store->pospal_app_key){
-    $buttons['push'] = function ($url, $model, $key){
-        $options = [
-            'title' => '推送',
-            'class' => 'btn-white btn btn-xs',
-        ];
-        return \yii\helpers\Html::a('推送', ['goods/push', 'id' => $key], $options);
-    };
-}
 ?>
+<div class="goods-index">
 
-<div class="ibox">
-    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+    <h1><?= Html::encode($this->title) ?></h1>
 
+    <p>
+        <?= Html::a('添加商品', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('回收站', ['recycle'], ['class' => 'btn btn-success']) ?>
+    </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'layoutFix' => true,
         'columns' => [
-            [
-                'attribute' => 'goods_id',
-                'header' => '#',
-            ],
-            [
-                'attribute' => 'preview',
-                'value' => function($data){
-                    return $data->getPreview(200, 200);
-                },
-                'format' => ['image', ['style' => 'max-width: 200px; max-height: 50px;']],
-            ],
-            [
-                'attribute' => 'category_id',
-                'value' => function($data){
-                    return $data->category ? $data->category->name : '';
-                },
-            ],
+            'id',
             'name',
-            [
-                'attribute' => 'is_hot',
-                'format' => 'raw',
-                'value' => function($data){
-                    return $data->getIsHotLabel();
-                },
-            ],
-            [
-                'attribute' => 'is_recommend',
-                'format' => 'raw',
-                'value' => function($data){
-                    return $data->getIsRecommendLabel();
-                },
-            ],
-            [
-                'attribute' => 'status',
-                'format' => 'raw',
-                'value' => function($data){
-                    return $data->getStatusLabel();
-                },
-            ],
+            'stock',
+            'sales',
 
             [
-                'class' => 'ijony\admin\grid\ActionColumn',
-                'headerOptions' => [
-                    'class' => 'text-right',
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {update} {delete}',
+                'buttons' => [
+                    'view' => function ($url, $model, $key) {
+                        /* @var $model \common\models\Goods */
+                        return Html::a('查看', ['goods/view', 'id' => $model->id]);
+                    },
+                    'update' => function ($url, $model, $key) {
+                        return "| " . Html::a('编辑', $url);
+                    },
+                    'delete' => function ($url, $model, $key) {
+                        $options = [
+                            'title' => '删除',
+                            'aria-label' => '删除',
+                            'data-confirm' => '确定要放入回收站嘛？',
+                            'data-method' => 'post',
+                            'data-pjax' => '0',
+                        ];
+
+                        return "| " . Html::a('删除', $url, $options);
+                    },
                 ],
-                'template' => '{view} {mode} {update} {remove} {comment}',
-                'buttons' => $buttons
             ],
         ],
     ]); ?>
 </div>
-

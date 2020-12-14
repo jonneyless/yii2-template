@@ -9,10 +9,4 @@ $config = [
     ],
 ];
 
-$config['bootstrap'][] = 'gii';
-$config['modules']['gii'] = [
-    'class' => 'yii\gii\Module',
-    'allowedIPs' => ['127.0.0.1', '::1', '10.0.*.*', '116.7.99.184'],
-];
-
 return $config;

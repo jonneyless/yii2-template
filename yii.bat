@@ -9,6 +9,8 @@ rem  @copyright Copyright (c) 2008 Yii Software LLC
 rem  @license http://www.yiiframework.com/license/
 rem -------------------------------------------------------------
 
+chcp 65001
+
 @setlocal
 
 set YII_PATH=%~dp0

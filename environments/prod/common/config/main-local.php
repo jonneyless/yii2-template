@@ -3,10 +3,11 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=beiyindi_shop',
-            'username' => 'root',
-            'password' => 'yagnzhou07',
+            'dsn' => 'mysql:host=rds1;dbname=szpt',
+            'username' => 'szpt',
+            'password' => 'Szpt_44d8',
             'charset' => 'utf8',
+            'tablePrefix' => 'pt_',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',

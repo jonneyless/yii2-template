@@ -305,7 +305,7 @@ Released under the UploadiFive Standard License <http://www.uploadify.com/upload
                     var fadeTime = instant ? 0 : 500;
                     if (file.queueItem) {
                         if (file.queueItem.find('.fileinfo').html() != '上传完毕') {
-                            file.queueItem.find('.fileinfo').html('已取消');
+                            file.queueItem.find('.fileinfo').html('已失效');
                         }
                         file.queueItem.find('.progress-bar').width(0);
                         file.queueItem.delay(delay).fadeOut(fadeTime, function() {
@@ -801,7 +801,7 @@ Released under the UploadiFive Standard License <http://www.uploadify.com/upload
                                 $data.uploadFile(_file, true);
                             }
                         });
-                        if ($('#' + settings.queueID).find('.uploadifive-queue-item').not('.error, .complete').length == 0) {
+                        if ($('#' + settings.queueID).find('.uploadifive-queue-item').not('.error, .complete').size() == 0) {
                             $data.queueComplete();
                         }
                     } else {

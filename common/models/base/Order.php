@@ -7,32 +7,32 @@ use Yii;
 /**
  * This is the model class for table "{{%order}}".
  *
- * @property string $order_id 订单号
- * @property string $pospal_id 银豹 ID
- * @property int $is_offline 线下订单
- * @property string $payment_id 支付单号
- * @property string $user_id 用户 ID
- * @property string $store_id 店铺 ID
- * @property string $freight_id 快递模板 ID
- * @property string $amount 总金额
- * @property string $cost 成本
- * @property string $saving 节省金额
- * @property string $fee 运费金额
- * @property string $consignee 收货人
- * @property string $area_id 地区 ID
- * @property string $address 详细地址
- * @property string $phone 联系电话
- * @property string $memo 买家备注
- * @property string $delivery_type 快递类型
- * @property string $delivery_number 快递单号
- * @property int $created_at 生成时间
- * @property int $updated_at 更新时间
- * @property int $status 状态
+ * @property string $id
+ * @property string $user_id
+ * @property string $goods_id
+ * @property string $group_id
+ * @property string $price
+ * @property string $quantity
+ * @property string $amount
+ * @property string $paid
+ * @property string $consignee
+ * @property string $area_id
+ * @property string $address
+ * @property string $phone
+ * @property string $delivery_name
+ * @property string $delivery_number
+ * @property string $pay_card
+ * @property integer $is_first
+ * @property string $created_at
+ * @property string $updated_at
+ * @property integer $payment_status
+ * @property integer $delivery_status
+ * @property integer $status
  */
 class Order extends \yii\db\ActiveRecord
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public static function tableName()
     {
@@ -40,49 +40,47 @@ class Order extends \yii\db\ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['order_id', 'user_id', 'store_id', 'consignee', 'area_id', 'address', 'phone'], 'required'],
-            [['is_offline', 'user_id', 'store_id', 'freight_id', 'area_id', 'created_at', 'updated_at', 'status'], 'integer'],
-            [['amount', 'cost', 'saving', 'fee'], 'number'],
-            [['order_id', 'payment_id'], 'string', 'max' => 20],
-            [['consignee'], 'string', 'max' => 30],
-            [['address', 'memo'], 'string', 'max' => 255],
-            [['pospal_id', 'phone'], 'string', 'max' => 60],
-            [['delivery_type', 'delivery_number'], 'string', 'max' => 64],
-            [['order_id'], 'unique'],
+            [['id', 'user_id', 'goods_id', 'group_id', 'quantity'], 'required'],
+            [['user_id', 'goods_id', 'group_id', 'quantity', 'area_id', 'is_first', 'created_at', 'updated_at', 'payment_status', 'delivery_status', 'status'], 'integer'],
+            [['price', 'amount', 'paid'], 'number'],
+            [['id'], 'string', 'max' => 16],
+            [['delivery_number', 'pay_card'], 'string', 'max' => 60],
+            [['consignee', 'address', 'phone'], 'string', 'max' => 255],
+            [['delivery_name'], 'string', 'max' => 30],
         ];
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function attributeLabels()
     {
         return [
-            'order_id' => '订单号',
-            'pospal_id' => '银豹 ID',
-            'is_offline' => '线下订单',
-            'payment_id' => '支付单号',
+            'id' => '订单 ID',
             'user_id' => '用户 ID',
-            'store_id' => '店铺 ID',
-            'freight_id' => '快递模板 ID',
+            'goods_id' => '商品 ID',
+            'group_id' => '拼单 ID',
+            'price' => '单价',
+            'quantity' => '数量',
             'amount' => '总金额',
-            'cost' => '成本',
-            'saving' => '节省金额',
-            'fee' => '运费金额',
+            'paid' => '已付金额',
             'consignee' => '收货人',
-            'area_id' => '地区 ID',
-            'address' => '详细地址',
+            'area_id' => '地址区域',
+            'address' => '收货地址',
             'phone' => '联系电话',
-            'memo' => '买家备注',
-            'delivery_type' => '快递类型',
-            'delivery_number' => '快递单号',
-            'created_at' => '生成时间',
+            'delivery_name' => '物流名称',
+            'delivery_number' => '物流单号',
+            'pay_card' => '支付卡号',
+            'is_first' => '发起人订单',
+            'created_at' => '下单时间',
             'updated_at' => '更新时间',
+            'payment_status' => '支付状态',
+            'delivery_status' => '物流状态',
             'status' => '状态',
         ];
     }

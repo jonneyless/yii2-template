@@ -3,25 +3,41 @@
 namespace common\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
- * 产品分类数据模型
+ * This is the model class for table "{{%category}}".
  *
- * {@inheritdoc}
- *
- * @property \common\models\Category $parent
+ * @property string $id
+ * @property string $parent_id
+ * @property string $name
+ * @property integer $status
  */
 class Category extends namespace\base\Category
 {
 
-    const STATUS_UNACTIVE = 0;    // 禁用
-    const STATUS_ACTIVE = 9;      // 启用
+    /**
+     * @var 禁用
+     */
+    const STATUS_DELETED = 0;
+    /**
+     * @var 启用
+     */
+    const STATUS_ACTIVE = 9;
 
     /**
-     * @return \yii\db\ActiveQuery
+     * @inheritdoc
      */
-    public function getParent()
+    public function rules()
     {
-        return $this->hasOne(Category::className(), ['category_id' => 'parent_id']);
+        return ArrayHelper::merge(parent::rules(), [
+            ['status', 'default', 'value' => self::STATUS_ACTIVE],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+        ]);
+    }
+
+    public static function getSelectDatas($parent_id = 0)
+    {
+        return static::find()->select(['name', 'id'])->where(['parent_id' => $parent_id])->indexBy('id')->column();
     }
 }

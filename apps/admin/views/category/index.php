@@ -1,56 +1,33 @@
 <?php
 
-use ijony\admin\grid\GridView;
+use yii\helpers\Html;
+use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = '分类管理';
 $this->params['breadcrumbs'][] = $this->title;
-$this->params['buttons'] = [
-    ['label' => '新增', 'url' => ['create'], 'options' => ['class' => 'btn btn-success']],
-];
 ?>
+<div class="category-index">
 
-<div class="ibox">
-    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+    <h1><?= Html::encode($this->title) ?></h1>
 
+    <p>
+        <?= Html::a('添加分类', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'layoutFix' => true,
+        'formatter' => [
+            'class' => '\yii\i18n\Formatter',
+            'booleanFormat' => ['禁用', '启用'],
+        ],
         'columns' => [
-            [
-                'attribute' => 'category_id',
-                'header' => '#',
-            ],
-            [
-                'attribute' => 'parent_id',
-                'format' => 'raw',
-                'value' => function($data){
-                    return $data->getParentButton();
-                },
-            ],
-            [
-                'attribute' => 'name',
-                'format' => 'raw',
-                'value' => function($data){
-                    return $data->getChildButton();
-                },
-            ],
-            [
-                'attribute' => 'status',
-                'format' => 'raw',
-                'value' => function($data){
-                    return $data->getStatusLabel();
-                },
-            ],
+            'id',
+            'name',
+            'status:boolean',
 
-            [
-                'class' => 'ijony\admin\grid\ActionColumn',
-                'headerOptions' => [
-                    'class' => 'text-right',
-                ],
-            ],
+            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>

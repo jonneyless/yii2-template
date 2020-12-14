@@ -2,33 +2,35 @@
 
 namespace admin\controllers;
 
-use ijony\helpers\File;
-use ijony\helpers\Folder;
 use Yii;
-use admin\models\Ad;
+use common\models\Ad;
 use yii\data\ActiveDataProvider;
-use yii\filters\VerbFilter;
+use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use yii\web\UploadedFile;
 
 /**
- * 广告管理类
- *
- * @auth_key    ad
- * @auth_name   广告管理
+ * AdController implements the CRUD actions for Ad model.
  */
 class AdController extends Controller
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'rules' => $this->getRules('ad'),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'matchCallback' => function ($rule, $action) {
+                            return !Yii::$app->user->getIsGuest() && Yii::$app->user->id == 1;
+                        },
+                    ],
+                ],
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -40,12 +42,8 @@ class AdController extends Controller
     }
 
     /**
-     * 广告列表
-     *
-     * @auth_key    *
-     * @auth_parent ad
-     *
-     * @return string
+     * Lists all Ad models.
+     * @return mixed
      */
     public function actionIndex()
     {
@@ -59,16 +57,11 @@ class AdController extends Controller
     }
 
     /**
-     * 广告详情
+     * Displays a single Ad model.
      *
-     * @auth_key    ad_view
-     * @auth_name   广告详情
-     * @auth_parent ad
+     * @param string $id
      *
-     * @param $id
-     *
-     * @return string
-     * @throws \yii\web\NotFoundHttpException
+     * @return mixed
      */
     public function actionView($id)
     {
@@ -78,89 +71,47 @@ class AdController extends Controller
     }
 
     /**
-     * 添加广告
-     *
-     * @auth_key    ad_create
-     * @auth_name   添加广告
-     * @auth_parent ad
-     *
-     * @return string|\yii\web\Response
+     * Creates a new Ad model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
      */
     public function actionCreate()
     {
         $model = new Ad();
-        $model->status = Ad::STATUS_ACTIVE;
 
-        if($model->load(Yii::$app->request->post())){
-            $image = UploadedFile::getInstance($model, 'image');
-            if($image){
-                $model->image = File::newFile($image->getExtension());
-            }
-
-            if($model->validate() && $model->save()){
-                if($image){
-                    $image->saveAs(Folder::getStatic($model->image));
-                }
-
-                return $this->redirect(['index', 'id' => $model->ad_id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
     }
 
     /**
-     * 编辑广告
-     *
-     * @auth_key    ad_update
-     * @auth_name   编辑广告
-     * @auth_parent ad
-     *
-     * @param $id
-     *
-     * @return string|\yii\web\Response
-     * @throws \yii\web\NotFoundHttpException
+     * Updates an existing Ad model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param string $id
+     * @return mixed
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
-        if($model->load(Yii::$app->request->post())){
-            $image = UploadedFile::getInstance($model, 'image');
-            if($image){
-                $model->image = File::newFile($image->getExtension());
-            }
-
-            if($model->validate() && $model->save()){
-                if($image){
-                    $image->saveAs(Folder::getStatic($model->image));
-                }
-
-                return $this->redirect(['view', 'id' => $model->ad_id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
         }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
     }
 
     /**
-     * 删除广告
-     *
-     * @auth_key    ad_delete
-     * @auth_name   删除广告
-     * @auth_parent ad
-     *
-     * @param $id
-     *
-     * @return \yii\web\Response
-     * @throws \Exception
-     * @throws \Throwable
-     * @throws \yii\db\StaleObjectException
-     * @throws \yii\web\NotFoundHttpException
+     * Deletes an existing Ad model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param string $id
+     * @return mixed
      */
     public function actionDelete($id)
     {
@@ -170,18 +121,17 @@ class AdController extends Controller
     }
 
     /**
-     * 获取广告对象
-     *
-     * @param $id
-     *
-     * @return \admin\models\Ad
-     * @throws \yii\web\NotFoundHttpException
+     * Finds the Ad model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param string $id
+     * @return Ad the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if(($model = Ad::findOne($id)) !== NULL){
+        if (($model = Ad::findOne($id)) !== null) {
             return $model;
-        }else{
+        } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }

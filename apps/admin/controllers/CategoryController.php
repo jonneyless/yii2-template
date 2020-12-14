@@ -3,29 +3,34 @@
 namespace admin\controllers;
 
 use Yii;
-use admin\models\Category;
+use common\models\Category;
 use yii\data\ActiveDataProvider;
-use yii\filters\VerbFilter;
-use yii\web\NotFoundHttpException;
 use yii\filters\AccessControl;
+use yii\web\Controller;
+use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
 
 /**
- * 商品分类管理类
- *
- * @auth_key    category
- * @auth_name   商品分类管理
+ * CategoryController implements the CRUD actions for Category model.
  */
 class CategoryController extends Controller
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'rules' => $this->getRules('category'),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'matchCallback' => function ($rule, $action) {
+                            return !Yii::$app->user->getIsGuest() && Yii::$app->user->id == 1;
+                        },
+                    ],
+                ],
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -37,86 +42,76 @@ class CategoryController extends Controller
     }
 
     /**
-     * 分类列表
-     *
-     * @auth_key    *
-     * @auth_parent category
-     *
-     * @return string
+     * Lists all Category models.
+     * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new \admin\models\search\Category();
-        $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
+        $dataProvider = new ActiveDataProvider([
+            'query' => Category::find(),
+        ]);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * 添加分类
+     * Displays a single Category model.
      *
-     * @auth_key    category_create
-     * @auth_name   添加分类
-     * @auth_parent category
+     * @param string $id
      *
-     * @return string|\yii\web\Response
+     * @return mixed
      */
-    public function actionCreate()
+    public function actionView($id)
     {
-        $model = new Category();
-        $model->status = Category::STATUS_ACTIVE;
-
-        if($model->load(Yii::$app->request->post()) && $model->save()){
-            return $this->redirect(['index']);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
+        return $this->render('view', [
+            'model' => $this->findModel($id),
         ]);
     }
 
     /**
-     * 编辑分类
-     *
-     * @auth_key    category_update
-     * @auth_name   编辑分类
-     * @auth_parent category
-     *
-     * @param $id
-     *
-     * @return string|\yii\web\Response
-     * @throws \yii\web\NotFoundHttpException
+     * Creates a new Category model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionCreate()
+    {
+        $model = new Category();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
+     * Updates an existing Category model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param string $id
+     * @return mixed
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
-        if($model->load(Yii::$app->request->post()) && $model->save()){
-            return $this->redirect(['index']);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
         }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
     }
 
     /**
-     * 删除分类
-     *
-     * @auth_key    category_delete
-     * @auth_name   删除分类
-     * @auth_parent category
-     *
-     * @param $id
-     *
-     * @return \yii\web\Response
-     * @throws \Exception
-     * @throws \Throwable
-     * @throws \yii\db\StaleObjectException
-     * @throws \yii\web\NotFoundHttpException
+     * Deletes an existing Category model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param string $id
+     * @return mixed
      */
     public function actionDelete($id)
     {
@@ -126,18 +121,17 @@ class CategoryController extends Controller
     }
 
     /**
-     * 获取分类对象
-     *
-     * @param $id
-     *
-     * @return \admin\models\Category
-     * @throws \yii\web\NotFoundHttpException
+     * Finds the Category model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param string $id
+     * @return Category the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if(($model = Category::findOne($id)) !== NULL){
+        if (($model = Category::findOne($id)) !== null) {
             return $model;
-        }else{
+        } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }

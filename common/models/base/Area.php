@@ -7,22 +7,22 @@ use Yii;
 /**
  * This is the model class for table "{{%area}}".
  *
- * @property string $area_id 地区 ID
- * @property string $parent_id 父级 ID
- * @property string $parent_arr 父级链
- * @property int $child 是否有子级
- * @property string $child_arr 子集合集
- * @property string $name 地区名称
- * @property int $depth 层级
- * @property string $initial 首字母
- * @property string $longitude 经度
- * @property string $latitude 纬度
- * @property int $status 状态
+ * @property string $id
+ * @property string $parent_id
+ * @property string $parent_arr
+ * @property integer $child
+ * @property string $child_arr
+ * @property string $name
+ * @property integer $depth
+ * @property string $initial
+ * @property string $longitude
+ * @property string $latitude
+ * @property integer $status
  */
 class Area extends \yii\db\ActiveRecord
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public static function tableName()
     {
@@ -30,7 +30,7 @@ class Area extends \yii\db\ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function rules()
     {
@@ -45,12 +45,12 @@ class Area extends \yii\db\ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function attributeLabels()
     {
         return [
-            'area_id' => '地区 ID',
+            'id' => '地区 ID',
             'parent_id' => '父级 ID',
             'parent_arr' => '父级链',
             'child' => '是否有子级',

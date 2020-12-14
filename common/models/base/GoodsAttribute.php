@@ -7,14 +7,14 @@ use Yii;
 /**
  * This is the model class for table "{{%goods_attribute}}".
  *
- * @property string $goods_id 商品 ID
- * @property string $name 属性名
- * @property string $value 属性值
+ * @property string $goods_id
+ * @property string $name
+ * @property string $value
  */
 class GoodsAttribute extends \yii\db\ActiveRecord
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public static function tableName()
     {
@@ -22,7 +22,7 @@ class GoodsAttribute extends \yii\db\ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function rules()
     {
@@ -35,7 +35,7 @@ class GoodsAttribute extends \yii\db\ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function attributeLabels()
     {

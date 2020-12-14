@@ -1,47 +1,36 @@
 <?php
 
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
-use ijony\admin\widgets\ActiveField;
+use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model admin\models\Admin */
-/* @var $form yii\bootstrap\ActiveForm  */
+/* @var $model common\models\Admin */
+/* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="ibox">
-    <div class="ibox-content">
+<div class="admin-form">
 
-        <?php $form = ActiveForm::begin([
-            'fieldClass' => ActiveField::className(),
-            'layout' => 'horizontal',
-            'fieldConfig' => [
-                'inline' => true,
-                'template' => "{label}\n{beginWrapper}\n{input}\n{hint}\n{error}\n{endWrapper}",
-                'horizontalCssClasses' => [
-                    'label' => 'col-sm-2',
-                    'offset' => 'col-sm-offset-2',
-                    'wrapper' => 'col-sm-10',
-                    'error' => '',
-                    'hint' => '',
-                ],
-            ],
-        ]); ?>
+    <?php $form = ActiveForm::begin(); ?>
 
+    <?php if ($model->getIsNewRecord()) { ?>
         <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
-        <?= $form->field($model, 'password')->passwordInput(['maxlength' => true])->hint($model->getIsNewRecord() ? false : '不修改密码请留空') ?>
-        <?= $form->field($model, 'role_id')->dropDownList($model->getRoleSelectData(), ['prompt' => '请选择']) ?>
-        <?= $form->field($model, 'store_id')->dropDownList($model->getStoreSelectData(), ['prompt' => '请选择']) ?>
-        <?= $form->field($model, 'status')->radioList($model->getStatusSelectData()) ?>
+    <?php } else { ?>
+        <?= $form->field($model, 'username')->textInput(['readonly' => true]) ?>
+    <?php } ?>
 
-        <div class="form-group">
-            <div class="col-sm-4 col-sm-offset-2">
-                <?= Html::resetButton('重置', ['class' => 'btn btn-white']) ?>
-                <?= Html::submitButton('保存', ['class' => 'btn btn-primary']) ?>
-            </div>
-        </div>
+    <?= $form->field($model, 'password')->textInput(['maxlength' => true]) ?>
 
-        <?php ActiveForm::end(); ?>
+    <?php if ($model->id != 1 && $model->id != Yii::$app->user->id) { ?>
+        <?= $form->field($model, 'status')->radioList([
+            \common\models\Admin::STATUS_DELETED => '禁用',
+            \common\models\Admin::STATUS_ACTIVE => '启用',
+        ]) ?>
+    <?php } ?>
 
+    <div class="form-group">
+        <?= Html::submitButton($model->isNewRecord ? '添加' : '更新', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
+
+    <?php ActiveForm::end(); ?>
+
 </div>

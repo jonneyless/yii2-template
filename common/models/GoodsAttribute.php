@@ -5,10 +5,44 @@ namespace common\models;
 use Yii;
 
 /**
- * 商品属性数据模型
+ * This is the model class for table "{{%goods_attribute}}".
  *
- * {@inheritdoc}
+ * @property string $goods_id
+ * @property string $name
+ * @property string $value
  */
 class GoodsAttribute extends namespace\base\GoodsAttribute
 {
+    /**
+     * @inheritdoc
+     */
+    public static function tableName()
+    {
+        return '{{%goods_attribute}}';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            [['goods_id', 'name', 'value'], 'required'],
+            [['goods_id'], 'integer'],
+            [['name'], 'string', 'max' => 30],
+            [['value'], 'string', 'max' => 150],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'goods_id' => '商品 ID',
+            'name' => '属性名',
+            'value' => '属性值',
+        ];
+    }
 }

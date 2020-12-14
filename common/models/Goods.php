@@ -2,128 +2,161 @@
 
 namespace common\models;
 
+use PDO;
 use Yii;
-use yii\behaviors\TimestampBehavior;
+use libs\Utils;
+use yii\base\ErrorException;
+use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
 
 /**
- * 商品数据模型
+ * This is the model class for table "{{%goods}}".
  *
- * {@inheritdoc}
+ * @property string $id
+ * @property string $category_id
+ * @property string $name
+ * @property string $sub_name
+ * @property string $preview
+ * @property string $stock
+ * @property string $sales
+ * @property string $price
+ * @property string $description
+ * @property string $content
+ * @property integer $status
  *
- * @property \common\models\GoodsAttribute[] $attr
- * @property \common\models\GoodsGallery[] $gallery
- * @property \common\models\GoodsInfo $info
- * @property \common\models\Category $category
- * @property \common\models\Store $store
- * @property \common\models\StoreCategory $storeCategory
+ * @property \common\models\GoodsGallery $gallery
+ * @property \common\models\GoodsAttribute $attrs
  */
 class Goods extends namespace\base\Goods
 {
 
-    const FREE_EXPRESS_NO = 0;
-    const FREE_EXPRESS_YES = 9;
-
-    const IS_HOT_UNACTIVE = 0;
-    const IS_HOT_ACTIVE = 9;
-
-    const IS_RECOMMEND_UNACTIVE = 0;
-    const IS_RECOMMEND_ACTIVE = 9;
-
-    const STATUS_DELETE = 0;    // 删除
-    const STATUS_UNACTIVE = 1;  // 禁用
-    const STATUS_OFFLINE = 2;  // 线下
-    const STATUS_ACTIVE = 9;    // 启用
+    private $_group_by_quantity;
 
     /**
-     * {@inheritdoc}
+     * @var 删除
+     */
+    const STATUS_DELETED = 0;
+    /**
+     * @var 下架
+     */
+    const STATUS_UNSHELVE = 1;
+    /**
+     * @var 上架
+     */
+    const STATUS_SHELVE = 9;
+
+    /**
+     * @inheritdoc
      */
     public function rules()
     {
+        return ArrayHelper::merge(parent::rules(), [
+            ['status', 'default', 'value' => self::STATUS_SHELVE],
+            ['status', 'in', 'range' => [self::STATUS_DELETED, self::STATUS_UNSHELVE, self::STATUS_SHELVE]],
+        ]);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
         return [
-            [['category_id', 'store_id', 'store_category_id', 'name', 'number'], 'required'],
-            [['category_id', 'store_id', 'store_category_id', 'created_at', 'updated_at', 'shelves_at', 'free_express', 'is_hot', 'is_recommend', 'status'], 'integer'],
-            [['original_price', 'member_price', 'cost_price', 'weight', 'goods_score', 'store_score', 'delivery_score'], 'number'],
-            [['content'], 'string'],
-            [['name'], 'string', 'max' => 100],
-            [['preview'], 'string', 'max' => 150],
-            [['number'], 'string', 'max' => 30],
-            [['bar_code'], 'string', 'max' => 255],
+            'id' => '商品 ID',
+            'category_id' => '商品分类',
+            'name' => '商品名称',
+            'preview' => '预览图',
+            'stock' => '库存',
+            'sales' => '销量',
+            'price' => '单价',
+            'description' => '商品简介',
+            'content' => '商品详情',
+            'status' => '状态',
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
+    public function beforeSave($insert)
     {
-        return [
-            TimestampBehavior::className(),
-        ];
-    }
-
-    /**
-     * 商品属性
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getAttr()
-    {
-        return $this->hasMany(GoodsAttribute::className(), ['goods_id' => 'goods_id']);
-    }
-
-    /**
-     * 商品组图
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getGallery()
-    {
-        return $this->hasMany(GoodsGallery::className(), ['goods_id' => 'goods_id'])->orderBy(['sort' => SORT_ASC]);
-    }
-
-    /**
-     * 商品附加信息
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getInfo()
-    {
-        return $this->hasOne(GoodsInfo::className(), ['goods_id' => 'goods_id']);
-    }
-
-    /**
-     * 商品分类信息
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCategory()
-    {
-        return $this->hasOne(Category::className(), ['category_id' => 'category_id']);
-    }
-
-    /**
-     * 店铺信息
-     * @return \yii\db\ActiveQuery
-     */
-    public function getStore()
-    {
-        return $this->hasOne(Store::className(), ['store_id' => 'store_id']);
-    }
-
-    /**
-     * 店铺商品分类信息
-     * @return \yii\db\ActiveQuery
-     */
-    public function getStoreCategory()
-    {
-        return $this->hasOne(StoreCategory::className(), ['category_id' => 'store_category_id']);
-    }
-
-    public function checkStore($store_id)
-    {
-        if(!$store_id){
-            return true;
+        if ($this->preview) {
+            $this->preview = Utils::coverBufferImage($this->preview);
         }
 
-        return $this->store_id == $store_id;
+        return parent::beforeSave($insert);
+    }
+
+    public function getGallery()
+    {
+        return $this->hasMany(GoodsGallery::className(), ['goods_id' => 'id'])->orderBy(['sort' => SORT_ASC]);
+    }
+
+    public function getAttrs()
+    {
+        return $this->hasMany(GoodsAttribute::className(), ['goods_id' => 'id']);
+    }
+
+    public function getViewUrl()
+    {
+        return Url::to(['site/goods', 'id' => $this->id]);
+    }
+
+    public function getCartUrl($quantity)
+    {
+        return Url::to(['site/cart', 'goods_id' => $this->id, 'quantity' => $quantity]);
+    }
+
+    public function getPreview($width = 0, $height = 0)
+    {
+        return Utils::getImg($this->preview, $width, $height);
+    }
+
+    public function checkStock($quantity)
+    {
+        return $quantity <= $this->stock;
+    }
+
+    public function updateStock($cost, $quantity, $fix = 1)
+    {
+        $count = $cost * $fix;
+        $stock = $count * -1;
+        $sales = $count;
+
+        Yii::$app->db->pdo->setAttribute(PDO::ATTR_AUTOCOMMIT, false);
+        try {
+            $transaction = Yii::$app->db->beginTransaction();
+
+            /* @var $goods \common\models\Goods */
+            $goods = Goods::findBySql('select * from {{%goods}} where id = :id for update', ['id' => $this->id])->one();
+
+            if ($fix > 0 && $goods->stock < 1) {
+                throw new ErrorException('库存不足！');
+            }
+
+            $sql = 'update {{%goods}} set stock = ' . ($goods->stock + $stock) . ', sales = ' . ($goods->sales + $sales) . ' where id = :id';
+            $result = Yii::$app->db->createCommand($sql, ['id' => $this->id])->execute();
+
+            if (!$result) {
+                throw new ErrorException('库存更新失败！');
+            }
+
+            $transaction->commit();
+
+            Yii::$app->db->pdo->setAttribute(PDO::ATTR_AUTOCOMMIT, true);
+
+            return true;
+        } catch (ErrorException $e) {
+            $transaction->rollBack();
+
+            Yii::$app->db->pdo->setAttribute(PDO::ATTR_AUTOCOMMIT, true);
+
+            return false;
+        }
+    }
+
+    public static function getShelveStatus()
+    {
+        return [
+            self::STATUS_UNSHELVE => '下架',
+            self::STATUS_SHELVE => '上架',
+        ];
     }
 }

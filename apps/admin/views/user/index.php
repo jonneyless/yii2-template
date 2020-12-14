@@ -1,58 +1,39 @@
 <?php
 
-use ijony\admin\grid\GridView;
+use common\models\User;
 use yii\helpers\Html;
+use yii\grid\GridView;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
+/* @var $searchModel common\models\search\User */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-/* @var $data \admin\models\User */
 
-$this->title = '会员管理';
+$this->title = '用户管理';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<div class="user-index">
 
-<div class="ibox">
-    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+    <h1><?= Html::encode($this->title) ?></h1>
 
+    <?php Pjax::begin(); ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'layoutFix' => true,
+        'filterModel' => $searchModel,
         'columns' => [
-            'user_id',
-            [
-                'attribute' => 'referee',
-                'value' => function($data){
-                    return $data->showReferee();
-                }
-            ],
-            'username',
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'id',
+            'name',
             'mobile',
             [
-                'attribute' => 'expire_at',
-                'value' => function($data){
-                    return $data->showExpire();
-                }
-            ],
-
-            [
-                'class' => 'ijony\admin\grid\ActionColumn',
-                'headerOptions' => [
-                    'class' => 'text-right',
-                ],
-                'template' => '{renew} {agent} {sync}',
-                'buttons' => [
-                    'renew' => function($url, $model, $key){
-                        return Html::a('续费', $url, ['class' => 'btn-white btn btn-xs']);
-                    },
-                    'agent' => function($url, $model, $key){
-                        return Html::a('代理', $url, ['class' => 'btn-white btn btn-xs']);
-                    },
-                    'sync' => function($url, $model, $key){
-                        return Html::a('同步', $url, ['class' => 'btn-white btn btn-xs']);
-                    }
-                ],
+                'attribute' => 'sign_status',
+                'value' => function ($data) {
+                    return $data->showSignStatus();
+                },
+                'filter' => User::getSignStatusSelectData(),
             ],
         ],
     ]); ?>
+    <?php Pjax::end(); ?>
 </div>
-

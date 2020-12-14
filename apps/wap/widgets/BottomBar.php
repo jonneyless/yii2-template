@@ -3,6 +3,7 @@ namespace wap\widgets;
 
 use Yii;
 use yii\bootstrap\Html;
+use yii\web\View;
 
 /**
  * 底部菜单
@@ -14,18 +15,18 @@ class BottomBar extends \yii\base\Widget
     /**
      * @var 信息类型
      */
-    public $buttons = [];
+    public $buttons = [
+        ['label' => '首页', 'url' => ['site/index'], 'icon' => '&#xe61d;', 'class' => '', 'options' => [], 'active' => 'site/index'],
+    ];
 
     /**
      * 初始化变量
      */
     public function init()
     {
-        if($this->view->context->bottomBar){
-            $this->buttons[] = ['label' => '首页', 'url' => ['site/index'], 'icon' => 'home', 'class' => '', 'options' => [], 'active' => 'site/index'];
-
-            foreach($this->view->context->bottomBar as $link){
-                if(!isset($link['icon'])){
+        if ($this->view->context->bottomBar) {
+            foreach ($this->view->context->bottomBar as $link) {
+                if (!isset($link['icon'])) {
                     $link['icon'] = '';
                 }
 
@@ -74,18 +75,10 @@ class BottomBar extends \yii\base\Widget
         foreach($this->buttons as $button){
             $icon = '';
             if($button['icon']){
-                $icon = Html::tag('span', '', ['class' => 'fc fc-' . $button['icon']]) . '<br />';
+                $icon = Html::tag('span', $button['icon'], ['class' => 'icon iconfont']) . '<br />';
             }
 
             $link = Html::a($icon . $button['label'], $button['url'], $button['options']);
-
-            if(isset($button['childs']) && $button['childs']){
-                $link .= Html::beginTag('ul', ['class' => 'dropdown-menu']);
-                foreach($button['childs'] as $child){
-                    $link .= Html::tag('li', Html::a($child['label'], $child['url']));
-                }
-                $link .= Html::endTag('ul');
-            }
 
             $active = false;
             if($button['active'] == $this->view->context->bottomBarActive){

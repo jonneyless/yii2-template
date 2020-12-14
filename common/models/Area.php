@@ -6,18 +6,28 @@ use Yii;
 use yii\helpers\ArrayHelper;
 
 /**
- * 地区数据模型
+ * This is the model class for table "{{%area}}".
  *
- * {@inheritdoc}
+ * @property string $id
+ * @property string $parent_id
+ * @property string $parent_arr
+ * @property integer $child
+ * @property string $child_arr
+ * @property string $name
+ * @property integer $depth
+ * @property string $initial
+ * @property string $longitude
+ * @property string $latitude
+ * @property integer $status
  */
 class Area extends namespace\base\Area
 {
 
-    const STATUS_DELETE = 0;    // 禁用
-    const STATUS_ACTIVE = 9;    // 启用
+    const STATUS_DELETE = 0;
+    const STATUS_ACTIVE = 9;
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function rules()
     {
@@ -63,9 +73,11 @@ class Area extends namespace\base\Area
         }
     }
 
-    public function getChildren()
+    public static function getNameById($id)
     {
-        return $this->hasMany(Area::className(), ['parent_id' => 'id']);
+        $area = static::findOne($id);
+
+        return $area ? $area->name : '';
     }
 
     public function getLevel()
@@ -78,52 +90,41 @@ class Area extends namespace\base\Area
                 return '市';
                 break;
             case 3:
-                return '区县';
+                return '区';
                 break;
         }
     }
 
-    public static function getNameById($id)
+    public static function getSelectData($parentId = 0)
     {
-        $area = static::findOne($id);
-        return $area ? $area->name : '';
-    }
-
-    public static function getTopId($areaId)
-    {
-        $area = static::findOne($areaId);
-
-        if(!$area){
-            $areaIds = [0];
-        }else{
-            $areaIds = explode(",", $area->parent_arr);
+        if ($parentId === '') {
+            return [];
+        }
+        $areas = static::find()->where(['parent_id' => $parentId, 'status' => self::STATUS_ACTIVE])->all();
+        if (!$areas) {
+            return [];
+        }
+        $return = [$parentId => '选择' . $areas[0]->getLevel()];
+        foreach ($areas as $area) {
+            $return[$area->id] = $area->name;
         }
 
-        array_push($areaIds, $areaId);
-
-        return $areaIds[1];
-    }
-
-    public static function getParentIds($areaId)
-    {
-        $area = static::findOne($areaId);
-
-        if(!$area){
-            return [0];
-        }
-
-        $areaIds = explode(",", $area->parent_arr);
-
-        array_push($areaIds, $areaId);
-
-        return $areaIds;
+        return $return;
     }
 
     public static function getParentLine($areaId)
     {
-        $areaIds = self::getParentIds($areaId);
+        $area = static::findOne($areaId);
 
-        return array_slice($areaIds, 1);
+        if (!$area) {
+            return [0];
+        }
+
+        $parentArr = explode(",", $area->parent_arr);
+
+        array_push($parentArr, $areaId);
+
+        return array_slice($parentArr, 1);
     }
 
     public static function getAreaLine($area_id)
@@ -133,39 +134,6 @@ class Area extends namespace\base\Area
             $area = self::getNameById($area);
         }
         return join("", $areas);
-    }
-
-    public static function getSelectData($parentId = 0, $exclude = '')
-    {
-        if($parentId === ''){
-            return [];
-        }
-
-        $query = static::find()->where(['parent_id' => $parentId, 'status' => self::STATUS_ACTIVE]);
-
-        if($range = Yii::$app->session->get('area_range', [])){
-            $query->andWhere(['id' => $range]);
-        }
-
-        if($exclude){
-            if(is_array($exclude)){
-                $exclude = explode(",", $exclude);
-            }
-            $query->andFilterWhere(['not in', 'id', (array) $exclude]);
-        }
-
-        $areas = $query->all();
-
-        if(!$areas){
-            return [];
-        }
-
-        $return = [$parentId => '选择' . $areas[0]->getLevel()];
-        foreach($areas as $area){
-            $return[$area->id] = $area->name;
-        }
-
-        return $return;
     }
 
     public static function getSelectDataByCity()

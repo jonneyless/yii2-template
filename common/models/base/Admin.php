@@ -7,21 +7,19 @@ use Yii;
 /**
  * This is the model class for table "{{%admin}}".
  *
- * @property string $id 用户 ID
- * @property string $role_id 角色 ID
- * @property string $store_id 店铺 ID
- * @property string $username 用户名
- * @property string $password_hash 登录密码
- * @property string $auth_key 登录保持密钥
- * @property int $created_at 注册时间
- * @property int $updated_at 更新时间
- * @property int $signin_at 登录时间
- * @property int $status 状态
+ * @property string $id
+ * @property string $username
+ * @property string $password_hash
+ * @property string $auth_key
+ * @property string $created_at
+ * @property string $updated_at
+ * @property string $signup_at
+ * @property integer $status
  */
 class Admin extends \yii\db\ActiveRecord
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public static function tableName()
     {
@@ -29,13 +27,13 @@ class Admin extends \yii\db\ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['role_id', 'store_id', 'created_at', 'updated_at', 'signin_at', 'status'], 'integer'],
-            [['username'], 'required'],
+            [['username', 'auth_key'], 'required'],
+            [['created_at', 'updated_at', 'signup_at', 'status'], 'integer'],
             [['username'], 'string', 'max' => 24],
             [['password_hash'], 'string', 'max' => 64],
             [['auth_key'], 'string', 'max' => 32],
@@ -43,20 +41,18 @@ class Admin extends \yii\db\ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function attributeLabels()
     {
         return [
             'id' => '用户 ID',
-            'role_id' => '角色 ID',
-            'store_id' => '店铺 ID',
             'username' => '用户名',
             'password_hash' => '登录密码',
             'auth_key' => '登录保持密钥',
             'created_at' => '注册时间',
             'updated_at' => '更新时间',
-            'signin_at' => '登录时间',
+            'signup_at' => '登录时间',
             'status' => '状态',
         ];
     }

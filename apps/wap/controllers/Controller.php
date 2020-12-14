@@ -2,25 +2,29 @@
 
 namespace wap\controllers;
 
-use common\models\Region;
+use common\models\User;
+use libs\Utils;
+use libs\Wechat;
 use Yii;
-use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
 
 /**
  * 公用控制器方法
  *
- * @property \common\models\Region $region
+ * @property \common\models\User $user
  *
- * @package mtwap\controllers
+ * @package wap\controllers
  * @author Jony <jonneyless@163.com>
  * @since 2016.11.21
  */
 class Controller extends \yii\web\Controller
 {
-    public $bottomBar;
-    public $topBar = [];
 
-    public $inApp = false;
+    public $header = true;
+    public $bottomBar = [
+        ['label' => '我的订单', 'url' => ['user/order'], 'icon' => '&#xe653;', 'class' => '', 'options' => []],
+        ['label' => '活动介绍', 'url' => ['site/about'], 'icon' => '&#xe666;', 'class' => '', 'options' => []],
+    ];
 
     public $backUrl = 'javascript:history.go(-1)';
 
@@ -30,33 +34,20 @@ class Controller extends \yii\web\Controller
     {
         parent::init();
 
-        $inApp = Yii::$app->request->getQueryParam('in-app', false);
-        $token = Yii::$app->request->getQueryParam('token');
-        $token = Yii::$app->request->getQueryParam('access-token', $token);
+        $PLATFORM = strtolower(Yii::$app->request->get('PLATFORM', ''));
+        $BANKPAY = strtolower(Yii::$app->request->get('BANKPAY', ''));
 
-        if(Yii::$app->wechat->getIsWechat()){
-            $this->topBar = false;
+        if ($PLATFORM && $BANKPAY == 'ccb') {
+            Yii::$app->session->set('WEB_VIEW', $PLATFORM == 'iphone' ? "1" : "2");
+        } else if (isset($_SERVER['HTTP_CCBWEBVIEW_USER_AGENT']) && substr($_SERVER['HTTP_CCBWEBVIEW_USER_AGENT'], 0, 10) == 'CCBWebView') {
+            $agent = strtolower($_SERVER['HTTP_CCBWEBVIEW_USER_AGENT']);
+            $iphone = (strpos($agent, 'iphone')) ? true : false;
+            $ipad = (strpos($agent, 'ipad')) ? true : false;
+            $android = (strpos($agent, 'android')) ? true : false;
+            Yii::$app->session->set('WEB_VIEW', ($iphone || $ipad) ? "1" : "2");
+        } else {
+            Yii::$app->session->set('WEB_VIEW', 0);
         }
-
-        if($token){
-            Yii::$app->user->loginByAccessToken($token);
-        }
-
-        $this->setBottons();
-
-        if($inApp){
-            $this->bottomBar = false;
-            $this->topBar = false;
-        }
-    }
-
-    public function setBottons()
-    {
-        $this->bottomBar = [
-            ['label' => '分类', 'url' => ['category/index'], 'icon' => 'category', 'class' => '', 'options' => []],
-            ['label' => '购物车', 'url' => ['cart/index'], 'icon' => 'cart', 'class' => '', 'options' => []],
-            ['label' => '我的', 'url' => ['user/index'], 'icon' => 'user', 'class' => '', 'options' => []],
-        ];
     }
 
     /**
@@ -70,18 +61,10 @@ class Controller extends \yii\web\Controller
      */
     public function message($message, $url = 'javascript:history.go(-1)', $delay = 3)
     {
-        $params = [
-            'message' => '',
+        return $this->render('/site/error', [
+            'message' => $message,
             'url' => $url,
             'delay' => $delay,
-        ];
-
-        if(is_array($message)){
-            $params = ArrayHelper::merge($params, $message);
-        }else{
-            $params['message'] = $message;
-        }
-
-        return $this->render('/site/error', $params);
+        ]);
     }
 }

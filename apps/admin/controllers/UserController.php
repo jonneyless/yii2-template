@@ -2,43 +2,56 @@
 
 namespace admin\controllers;
 
-use admin\models\User;
+use libs\Utils;
+use moonland\phpexcel\Excel;
 use Yii;
+use common\models\User;
+use common\models\search\User as UserSearch;
+use yii\data\ActiveDataProvider;
+use yii\web\Controller;
+use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 use yii\filters\AccessControl;
 
 /**
- * 会员管理类
- *
- * @auth_key    user
- * @auth_name   会员管理
+ * UserController implements the CRUD actions for User model.
  */
 class UserController extends Controller
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'rules' => $this->getRules('user'),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'matchCallback' => function ($rule, $action) {
+                            return !Yii::$app->user->getIsGuest() && Yii::$app->user->id == 1;
+                        },
+                    ],
+                ],
+            ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
             ],
         ];
     }
 
     /**
-     * 会员列表
-     *
-     * @auth_key    *
-     * @auth_parent user
-     *
-     * @return string
+     * Lists all User models.
+     * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new \admin\models\search\User();
-        $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
+        $searchModel = new UserSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -46,62 +59,58 @@ class UserController extends Controller
         ]);
     }
 
-    /**
-     * 会员列表
-     *
-     * @auth_key    *
-     * @auth_parent user
-     *
-     * @return string
-     */
-    public function actionRenew($id)
+    public function actionVip()
     {
-        $model = User::findOne($id);
+        $dataProvider = new ActiveDataProvider([
+            'query' => User::find()->where(['is_vip' => User::IS_VIP_YES]),
+        ]);
 
-        if($model->load(Yii::$app->request->post()) && $model->save()){
-            $model->syncUpdate();
-            return $this->redirect(['index']);
-        }
-
-        return $this->render('renew', [
-            'model' => $model,
+        return $this->render('vip', [
+            'dataProvider' => $dataProvider,
         ]);
     }
 
-    /**
-     * 会员列表
-     *
-     * @auth_key    *
-     * @auth_parent user
-     *
-     * @return string
-     */
-    public function actionAgent($id)
+    public function actionImport()
     {
-        $model = User::findOne($id);
+        $model = new User();
 
-        if($model->load(Yii::$app->request->post()) && $model->save()){
-            return $this->redirect(['index']);
+        if (Yii::$app->request->getIsPost()) {
+            $file = UploadedFile::getInstance($model, 'file');
+            if ($file) {
+                $newFile = Utils::staticFolder(Utils::newBufferFile($file->getExtension()));
+                $file->saveAs($newFile);
+                $datas = Excel::import($newFile);
+                if ($datas) {
+                    foreach ($datas as $data) {
+                        if (!isset($data['电话']) || !$data['电话']) {
+                            continue;
+                        }
+
+                        $model = User::find()->where(['mobile' => (string) $data['电话']])->one();
+
+                        if (!$model) {
+                            $model = new User();
+                            $model->mobile = (string) $data['电话'];
+                            $model->generateAuthKey();
+                        }
+
+                        $model->is_vip = User::IS_VIP_YES;
+                        if (!$model->save()) {
+                            Utils::dump($model->getErrors());
+                        }
+                    }
+                }
+
+                Utils::clearBuffer();
+
+                return $this->redirect(['index']);
+            } else {
+                $model->addError('file', '请选择要导入的文件！');
+            }
         }
 
-        return $this->render('company', [
+        return $this->render('import', [
             'model' => $model,
         ]);
-    }
-
-    /**
-     * 会员列表
-     *
-     * @auth_key    *
-     * @auth_parent user
-     *
-     * @return string
-     */
-    public function actionSync($id)
-    {
-        $model = User::findOne($id);
-        $model->syncUpdate();
-
-        return $this->message('同步完成！');
     }
 }

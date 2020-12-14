@@ -1,0 +1,17 @@
+/*
+	Description: 媒体校正
+    Created on : 2016-10-27, 09:54:02
+    Author     : Jony
+*/
+
+@media (min-width: 1px) {
+    .goods-item {
+        width: 100%;
+    }
+}
+
+@media (min-width: 640px) {
+    .goods-item {
+        width: 320px;
+    }
+}

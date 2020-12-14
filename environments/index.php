@@ -34,37 +34,17 @@ return [
         'setWritable' => [
             'apps/admin/runtime',
             'webs/admin/assets',
-            'apps/api/runtime',
-            'webs/api/assets',
             'apps/wap/runtime',
             'webs/wap/assets',
-        ],
-        'setExecutable' => [
-            'yii',
-            'yii_test',
-        ],
-        'setCookieValidationKey' => [
-            'apps/admin/config/main-local.php',
-            'apps/api/config/main-local.php',
-            'apps/wap/config/main-local.php',
-        ],
-    ],
-    'Testing' => [
-        'path' => 'test',
-        'setWritable' => [
-            'apps/admin/runtime',
-            'webs/admin/assets',
-            'apps/api/runtime',
-            'webs/api/assets',
-            'apps/wap/runtime',
-            'webs/wap/assets',
+            'webs/static/buffer',
+            'webs/static/thumb',
+            'webs/static/upload',
         ],
         'setExecutable' => [
             'yii',
         ],
         'setCookieValidationKey' => [
             'apps/admin/config/main-local.php',
-            'apps/api/config/main-local.php',
             'apps/wap/config/main-local.php',
         ],
     ],
@@ -73,17 +53,17 @@ return [
         'setWritable' => [
             'apps/admin/runtime',
             'webs/admin/assets',
-            'apps/api/runtime',
-            'webs/api/assets',
             'apps/wap/runtime',
             'webs/wap/assets',
+            'webs/static/buffer',
+            'webs/static/thumb',
+            'webs/static/upload',
         ],
         'setExecutable' => [
             'yii',
         ],
         'setCookieValidationKey' => [
             'apps/admin/config/main-local.php',
-            'apps/api/config/main-local.php',
             'apps/wap/config/main-local.php',
         ],
     ],

@@ -1,59 +1,33 @@
 <?php
 namespace admin\controllers;
 
-use ijony\helpers\File;
-use ijony\helpers\Folder;
-use ijony\helpers\Image;
-use ijony\helpers\Url;
 use Yii;
 use yii\base\ErrorException;
-use yii\filters\AccessControl;
-use yii\filters\VerbFilter;
 use yii\helpers\Json;
-use yii\web\Controller as BaseController;
+use yii\web\Controller;
+use libs\Utils;
 
 /**
  * 配合 Uploadifive 使用的上传类
+ *
+ * @package home\controllers
  */
-class UploadController extends BaseController
+class UploadController extends Controller
 {
     private $return = [
         'error' => 1,
         'msg' => '',
         'html' => '',
         'json' => '',
-        'link' => ''
+        'link' => '',
     ];
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'image' => ['post'],
-                ],
-            ],
-        ];
-    }
 
     public function actionImage()
     {
         $request = Yii::$app->request;
         $timestamp = $request->post('timestamp');
         $token = $request->post('token');
-        $verifyToken = md5('laijiusheng_' . $timestamp);
+        $verifyToken = md5(Yii::$app->params['md5.authKey'] . $timestamp);
         $thumbWidth = $request->post('width', 0);
         $thumbHeight = $request->post('height', 0);
 
@@ -63,23 +37,24 @@ class UploadController extends BaseController
             }
 
             $imgInfo = pathinfo($_FILES['Filedata']['name']);
-            $newImg = File::newBufferFile($imgInfo['extension'], Yii::$app->user->id);
+
             if(!in_array(strtolower($imgInfo['extension']), ['jpg', 'gif', 'png', 'jpeg'])){
                 throw new ErrorException('文件格式错误！' . $imgInfo['extension']);
             }
 
+            $newImg = Utils::newBufferFile($imgInfo['extension']);
             $tempFile = $_FILES['Filedata']['tmp_name'];
 
-            if(!File::saveFile(Folder::getStatic($newImg), $tempFile)){
+            if (!Utils::saveFile(Utils::staticFolder($newImg), $tempFile)) {
                 throw new ErrorException('保存失败！');
             }
 
             if($thumbWidth){
-                $return['thumb'] = Image::getImg($newImg, $thumbWidth, $thumbHeight);
+                $return['thumb'] = Utils::getImg($newImg, $thumbWidth, $thumbHeight);
             }
 
             $return['error'] = 0;
-            $return['url'] = Url::getStatic($newImg);
+            $return['url'] = Utils::staticUrl($newImg);
             $return['path'] = $newImg;
             $return['name'] = str_replace('.' . $imgInfo['extension'], '', $imgInfo['basename']);
 

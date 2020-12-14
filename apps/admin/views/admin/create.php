@@ -1,16 +1,20 @@
 <?php
 
+use yii\helpers\Html;
+
 /* @var $this yii\web\View */
-/* @var $model admin\models\Admin */
+/* @var $model common\models\Admin */
 
 $this->title = '添加管理员';
-$this->params['breadcrumbs'][] = ['label' => '管理员管理', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '系统管理员', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-$this->params['buttons'] = [
-    ['label' => '管理', 'url' => ['index'], 'options' => ['class' => 'btn btn-info']],
-];
 ?>
+<div class="admin-create">
 
-<?= $this->render('_form', [
-    'model' => $model,
-]) ?>
+    <h1><?= Html::encode($this->title) ?></h1>
+
+    <?= $this->render('_form', [
+        'model' => $model,
+    ]) ?>
+
+</div>

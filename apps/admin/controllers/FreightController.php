@@ -3,29 +3,34 @@
 namespace admin\controllers;
 
 use Yii;
-use admin\models\StoreFreight;
+use common\models\Freight;
 use yii\data\ActiveDataProvider;
-use yii\filters\VerbFilter;
+use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
 /**
- * 店铺运费管理类
- *
- * @auth_key    freight
- * @auth_name   店铺运费模板管理
+ * FreightController implements the CRUD actions for Freight model.
  */
 class FreightController extends Controller
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'rules' => $this->getRules('freight'),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'matchCallback' => function ($rule, $action) {
+                            return !Yii::$app->user->getIsGuest() && Yii::$app->user->id == 1;
+                        },
+                    ],
+                ],
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -37,23 +42,13 @@ class FreightController extends Controller
     }
 
     /**
-     * 运费模板列表
-     *
-     * @auth_key    *
-     * @auth_parent freight
-     *
-     * @return string
+     * Lists all Freight models.
+     * @return mixed
      */
     public function actionIndex()
     {
-        $query = StoreFreight::find();
-
-        if($this->store_id){
-            $query->andFilterWhere(['store_id' => $this->store_id]);
-        }
-
         $dataProvider = new ActiveDataProvider([
-            'query' => $query,
+            'query' => Freight::find(),
         ]);
 
         return $this->render('index', [
@@ -62,101 +57,81 @@ class FreightController extends Controller
     }
 
     /**
-     * 添加运费模板
+     * Displays a single Freight model.
      *
-     * @auth_key    freight_create
-     * @auth_name   添加运费模板
-     * @auth_parent freight
+     * @param string $id
      *
-     * @return string|\yii\web\Response
+     * @return mixed
      */
-    public function actionCreate()
+    public function actionView($id)
     {
-        $model = new StoreFreight();
-
-        if($this->store_id){
-            $model->store_id = $this->store_id;
-        }
-
-        if($model->load(Yii::$app->request->post()) && $model->save()){
-            return $this->redirect(['index']);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
+        return $this->render('view', [
+            'model' => $this->findModel($id),
         ]);
     }
 
     /**
-     * 编辑运费模板
-     *
-     * @auth_key    freight_update
-     * @auth_name   编辑运费模板
-     * @auth_parent freight
-     *
-     * @param $id
-     *
-     * @return string|\yii\web\Response
-     * @throws \yii\web\NotFoundHttpException
+     * Creates a new Freight model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionCreate()
+    {
+        $model = new Freight();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
+     * Updates an existing Freight model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param string $id
+     * @return mixed
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
-        if(!$model->checkStore($this->store_id)){
-            return $this->message('对不起，你没有操作权限！');
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
         }
-
-        if($model->load(Yii::$app->request->post()) && $model->save()){
-            return $this->redirect(['index']);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
     }
 
     /**
-     * 删除运费模板
-     *
-     * @auth_key    freight_delete
-     * @auth_name   删除运费模板
-     * @auth_parent freight
-     *
-     * @param $id
-     *
-     * @return \yii\web\Response
-     * @throws \Exception
-     * @throws \Throwable
-     * @throws \yii\db\StaleObjectException
-     * @throws \yii\web\NotFoundHttpException
+     * Deletes an existing Freight model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param string $id
+     * @return mixed
      */
     public function actionDelete($id)
     {
-        $model = $this->findModel($id);
-
-        if(!$model->checkStore($this->store_id)){
-            return $this->message('对不起，你没有操作权限！');
-        }
-
-        $model->delete();
+        $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * 获取运费模板对象
-     *
-     * @param $id
-     *
-     * @return \admin\models\StoreFreight
-     * @throws \yii\web\NotFoundHttpException
+     * Finds the Freight model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param string $id
+     * @return Freight the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if(($model = StoreFreight::findOne($id)) !== NULL){
+        if (($model = Freight::findOne($id)) !== null) {
             return $model;
-        }else{
+        } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }

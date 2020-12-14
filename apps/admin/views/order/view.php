@@ -1,40 +1,48 @@
 <?php
 
-use ijony\admin\grid\GridView;
-use yii\widgets\DetailView;
-use yii\helpers\Url;
 use yii\helpers\Html;
+use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model admin\models\Order */
+/* @var $model common\models\Order */
 
-$this->title = $model->order_id;
+$this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => '订单管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-$this->params['buttons'][] = ['label' => '管理', 'url' => ['index'], 'options' => ['class' => 'btn btn-info']];
-
-if($model->isPaid()){
-    $this->params['buttons'][] = ['label' => '发货', 'url' => ['delivery-done', 'id' => $model->order_id], 'options' => ['class' => 'btn btn-danger']];
-}
 ?>
+<div class="order-view">
 
-<div class="ibox">
-    <div class="ibox-content m-b-sm border-bottom">
+    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'order_id',
+            'id',
+            [
+                'attribute' => 'goods_id',
+                'value' => $model->goods->name,
+            ],
+            [
+                'attribute' => 'group_id',
+                'value' => '拼单 #' . $model->group_id,
+            ],
+            'price',
+            'quantity',
             'amount',
-            'fee',
+            'paid',
             'consignee',
-            'address',
             'phone',
+            'delivery_name',
+            'delivery_number',
+            [
+                'attribute' => 'address',
+                'value' => $model->showAreaLine() . " " . $model->address,
+            ],
             [
                 'attribute' => 'created_at',
                 'format' => [
                     'datetime',
-                    'yyyy-MM-dd HH:mm:ss'
+                    'yyyy-MM-dd HH:mm:ss',
                 ],
             ],
             [
@@ -46,54 +54,10 @@ if($model->isPaid()){
             ],
             [
                 'attribute' => 'status',
-                'value' => $model->getStatus(),
+                'format' => 'raw',
+                'value' => $model->showStatus(),
             ],
         ],
     ]) ?>
 
-    </div>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'layoutFix' => true,
-        'columns' => [
-            [
-                'attribute' => 'preview',
-                'format' => ['image', ['style' => 'max-width: 200px; max-height: 50px;']],
-                'value' => function($data){
-                    return \ijony\helpers\Image::getImg($data->preview);
-                },
-            ],
-            'name',
-            'quantity',
-            'amount',
-            [
-                'attribute' => 'goods.weight',
-                'value' => function($data){
-                    return $data->goods->showWeight();
-                },
-            ],
-            [
-                'attribute' => 'attrs',
-                'value' => function($data){
-                    return $data->showAttrs();
-                },
-            ],
-            'mode',
-
-            [
-                'class' => 'ijony\admin\grid\ActionColumn',
-                'headerOptions' => [
-                    'class' => 'text-right',
-                ],
-                'template' => '{view}',
-                'buttons' => [
-                    'view' => function($url, $model, $key){
-                        $url = Url::to(['goods/view', 'id' => $model->goods_id]);
-                        return Html::a('相关商品', $url, ['class' => 'btn-white btn btn-xs', 'target' => '_blank']);
-                    }
-                ],
-            ],
-        ],
-    ]); ?>
 </div>

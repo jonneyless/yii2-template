@@ -1,10 +1,18 @@
 <?php
-
 namespace admin\controllers;
 
+use common\models\Area;
+use libs\Utils;
+use moonland\phpexcel\Excel;
 use Yii;
+use yii\web\Controller;
+use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use admin\models\LoginForm;
+use admin\models\PasswordResetRequestForm;
+use admin\models\ResetPasswordForm;
+use admin\models\SignupForm;
+use admin\models\ContactForm;
 
 /**
  * Site controller
@@ -12,7 +20,7 @@ use admin\models\LoginForm;
 class SiteController extends Controller
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function behaviors()
     {
@@ -25,31 +33,36 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
+                ],
+            ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post'],
                 ],
             ],
         ];
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function actions()
     {
         return [
             'error' => [
-                'class' => 'ijony\admin\actions\ErrorAction',
+                'class' => 'yii\web\ErrorAction',
             ],
         ];
     }
 
     /**
-     * 首页
+     * Displays homepage.
      *
-     * @return string
+     * @return mixed
      */
     public function actionIndex()
     {
@@ -57,13 +70,12 @@ class SiteController extends Controller
     }
 
     /**
-     * 登录
+     * Logs in a user.
      *
-     * @return string
+     * @return mixed
      */
     public function actionLogin()
     {
-        $this->layout = 'main-full';
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -79,9 +91,9 @@ class SiteController extends Controller
     }
 
     /**
-     * 注销
+     * Logs out the current user.
      *
-     * @return string
+     * @return mixed
      */
     public function actionLogout()
     {
