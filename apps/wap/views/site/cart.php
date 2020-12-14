@@ -15,7 +15,15 @@ PageAsset::register($this)->init([
     ],
 ]);
 
-$this->title = '立即拼单';
+$this->context->bottomBar = [];
+$this->context->bottomBar[] = [
+    'label' => '提交<br>订单',
+    'url' => '#',
+    'class' => 'buy',
+    'id' => 'to-confirm',
+];
+
+$this->title = '确认下单';
 ?>
 
 <?php
@@ -47,6 +55,10 @@ $form = ActiveForm::begin([
         <?= $form->field($order, 'phone')->textInput(['maxlength' => true]) ?>
         <?= $form->field($order, 'area_id')->area() ?>
         <?= $form->field($order, 'address')->textInput(['maxlength' => true]) ?>
+        <div style="display: none">
+            <?= $form->field($order, 'goods_id')->label(false)->hiddenInput() ?>
+            <?= $form->field($order, 'quantity')->label(false)->hiddenInput() ?>
+        </div>
     </div>
 </div>
 
@@ -73,13 +85,6 @@ $form = ActiveForm::begin([
 
 <div class="box text-right black-gray">
     支付金额：<span class="red">￥<?= sprintf('%.2f', $model->price) ?></span>
-</div>
-
-<div class="box box-nobg">
-    <?= $form->field($order, 'goods_id')->label(false)->hiddenInput() ?>
-    <?= $form->field($order, 'quantity')->label(false)->hiddenInput() ?>
-
-    <input id="to-confirm" type="button" class="btn btn-danger btn-lg form-control" value="提交订单"/>
 </div>
 
 <?php ActiveForm::end(); ?>
