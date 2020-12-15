@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ec3ea273da5cde9180dfa6be025f980",
+    "content-hash": "46d95e4d732f80ee5e62c254d3d62d14",
     "packages": [
         {
             "name": "2amigos/yii2-qrcode-helper",
