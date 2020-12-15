@@ -1,0 +1,1384 @@
+2020-12-15 08:38:49 [127.0.0.1][-][-][error][yii\base\UnknownPropertyException] yii\base\UnknownPropertyException: Setting unknown property: yii\web\UrlManager::suffer in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Component.php:210
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/BaseYii.php(558): yii\base\Component->__set('suffer', '.html')
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/BaseObject.php(107): yii\BaseYii::configure(Object(yii\web\UrlManager), Array)
+#2 [internal function]: yii\base\BaseObject->__construct(Array)
+#3 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(420): ReflectionClass->newInstanceArgs(Array)
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(171): yii\di\Container->build('yii\\web\\UrlMana...', Array, Array)
+#5 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\web\\UrlMana...', Array, Array)
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#7 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(742): yii\di\ServiceLocator->get('urlManager', true)
+#8 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(577): yii\base\Module->get('urlManager')
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2-debug/src/Module.php(275): yii\base\Application->getUrlManager()
+#10 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(333): yii\debug\Module->bootstrap(Object(yii\web\Application))
+#11 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/Application.php(70): yii\base\Application->bootstrap()
+#12 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(279): yii\web\Application->bootstrap()
+#13 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\base\Application->init()
+#14 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(212): yii\base\BaseObject->__construct(Array)
+#15 /Users/jony/Htdocs/gxtewang/public/admin/index.php(17): yii\base\Application->__construct(Array)
+#16 {main}
+2020-12-15 08:38:49 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'sensorsdata2015jssdkcross' => '{\"distinct_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"$device_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"props\":{\"$latest_traffic_source_type\":\"直接流量\",\"$latest_referrer\":\"\",\"$latest_referrer_host\":\"\",\"$latest_search_keyword\":\"未取到值_直接打开\"}}'
+    '_ga' => 'GA1.2.916450568.1600856879'
+    'yii2-mall-admin' => '64ptr66k8fnbpk4av7se7hm5dq'
+    '_identity-admin' => '2d147305bc623cb8e80a42937d1affd64ad929a6b6ab3c6123c291c9d170c44ca:2:{i:0;s:15:\"_identity-admin\";i:1;s:48:\"[\"1\",\"WW68ZCn8DZ-jnqIV-ezDZ7RttiGHMHMz\",2592000]\";}'
+    '_csrf-admin' => '67417f746a5134d365f04ca39f5c74c91429e94c24a534aae2d0c3fbff83a3daa:2:{i:0;s:11:\"_csrf-admin\";i:1;s:32:\"8lt-1Vtxme1kb0aIndt2AoJD7TgvpUcQ\";}'
+    '_identity' => '25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a:2:{i:0;s:9:\"_identity\";i:1;s:48:\"[\"1\",\"52g8gXAF-fX5LXhFWd8SydHEO7-TdEGa\",2592000]\";}'
+    '_csrf' => '32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX\";}'
+]
+
+$_SERVER = [
+    'USER' => 'jony'
+    'HOME' => '/Users/jony'
+    'HTTP_COOKIE' => 'sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22%24device_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; _ga=GA1.2.916450568.1600856879; yii2-mall-admin=64ptr66k8fnbpk4av7se7hm5dq; _identity-admin=2d147305bc623cb8e80a42937d1affd64ad929a6b6ab3c6123c291c9d170c44ca%3A2%3A%7Bi%3A0%3Bs%3A15%3A%22_identity-admin%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%22WW68ZCn8DZ-jnqIV-ezDZ7RttiGHMHMz%22%2C2592000%5D%22%3B%7D; _csrf-admin=67417f746a5134d365f04ca39f5c74c91429e94c24a534aae2d0c3fbff83a3daa%3A2%3A%7Bi%3A0%3Bs%3A11%3A%22_csrf-admin%22%3Bi%3A1%3Bs%3A32%3A%228lt-1Vtxme1kb0aIndt2AoJD7TgvpUcQ%22%3B%7D; _identity=25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%2252g8gXAF-fX5LXhFWd8SydHEO7-TdEGa%22%2C2592000%5D%22%3B%7D; _csrf=32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.60'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => 'admin.gxtewang.lvh.me'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '*.lvh.me'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '51590'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.19.5'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/Users/jony/Htdocs/gxtewang/public/admin'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/Users/jony/Htdocs/gxtewang/public/admin/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1608021529.6256
+    'REQUEST_TIME' => 1608021529
+]
+2020-12-15 08:39:28 [127.0.0.1][-][5kt6mdu7hkejeialurvsv834s5][error][yii\base\ViewNotFoundException] yii\base\ViewNotFoundException: The view file does not exist: /Users/jony/Htdocs/gxtewang/apps/admin/views/layouts/blank.php in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php:233
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(425): yii\base\View->renderFile('/Users/jony/Htd...', Array, Object(admin\controllers\SiteController))
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(411): yii\base\Controller->renderContent('\n<!DOCTYPE html...')
+#2 /Users/jony/Htdocs/gxtewang/apps/admin/controllers/SiteController.php(86): yii\base\Controller->render('login', Array)
+#3 [internal function]: admin\controllers\SiteController->actionLogin()
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#5 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(181): yii\base\InlineAction->runWithParams(Array)
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('login', Array)
+#7 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/Application.php(104): yii\base\Module->runAction('site/login', Array)
+#8 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /Users/jony/Htdocs/gxtewang/public/admin/index.php(17): yii\base\Application->run()
+#10 {main}
+2020-12-15 08:39:28 [127.0.0.1][-][5kt6mdu7hkejeialurvsv834s5][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'sensorsdata2015jssdkcross' => '{\"distinct_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"$device_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"props\":{\"$latest_traffic_source_type\":\"直接流量\",\"$latest_referrer\":\"\",\"$latest_referrer_host\":\"\",\"$latest_search_keyword\":\"未取到值_直接打开\"}}'
+    '_ga' => 'GA1.2.916450568.1600856879'
+    'yii2-mall-admin' => '64ptr66k8fnbpk4av7se7hm5dq'
+    '_identity-admin' => '2d147305bc623cb8e80a42937d1affd64ad929a6b6ab3c6123c291c9d170c44ca:2:{i:0;s:15:\"_identity-admin\";i:1;s:48:\"[\"1\",\"WW68ZCn8DZ-jnqIV-ezDZ7RttiGHMHMz\",2592000]\";}'
+    '_csrf-admin' => '67417f746a5134d365f04ca39f5c74c91429e94c24a534aae2d0c3fbff83a3daa:2:{i:0;s:11:\"_csrf-admin\";i:1;s:32:\"8lt-1Vtxme1kb0aIndt2AoJD7TgvpUcQ\";}'
+    '_identity' => '25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a:2:{i:0;s:9:\"_identity\";i:1;s:48:\"[\"1\",\"52g8gXAF-fX5LXhFWd8SydHEO7-TdEGa\",2592000]\";}'
+    '_csrf' => '32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX\";}'
+    'advanced-admin' => '5kt6mdu7hkejeialurvsv834s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://admin.gxtewang.lvh.me/'
+]
+
+$_SERVER = [
+    'USER' => 'jony'
+    'HOME' => '/Users/jony'
+    'HTTP_COOKIE' => 'sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22%24device_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; _ga=GA1.2.916450568.1600856879; yii2-mall-admin=64ptr66k8fnbpk4av7se7hm5dq; _identity-admin=2d147305bc623cb8e80a42937d1affd64ad929a6b6ab3c6123c291c9d170c44ca%3A2%3A%7Bi%3A0%3Bs%3A15%3A%22_identity-admin%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%22WW68ZCn8DZ-jnqIV-ezDZ7RttiGHMHMz%22%2C2592000%5D%22%3B%7D; _csrf-admin=67417f746a5134d365f04ca39f5c74c91429e94c24a534aae2d0c3fbff83a3daa%3A2%3A%7Bi%3A0%3Bs%3A11%3A%22_csrf-admin%22%3Bi%3A1%3Bs%3A32%3A%228lt-1Vtxme1kb0aIndt2AoJD7TgvpUcQ%22%3B%7D; _identity=25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%2252g8gXAF-fX5LXhFWd8SydHEO7-TdEGa%22%2C2592000%5D%22%3B%7D; _csrf=32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX%22%3B%7D; advanced-admin=5kt6mdu7hkejeialurvsv834s5'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.60'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => 'admin.gxtewang.lvh.me'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '*.lvh.me'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '51590'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.19.5'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/Users/jony/Htdocs/gxtewang/public/admin'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/site/login.html'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/Users/jony/Htdocs/gxtewang/public/admin/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1608021568.3502
+    'REQUEST_TIME' => 1608021568
+]
+2020-12-15 08:41:15 [127.0.0.1][-][5kt6mdu7hkejeialurvsv834s5][error][Error] Error: Call to undefined function common\libs\user() in /Users/jony/Htdocs/gxtewang/apps/admin/controllers/BaseController.php:37
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/BaseObject.php(109): admin\controllers\BaseController->init()
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(98): yii\base\BaseObject->__construct(Array)
+#2 [internal function]: yii\base\Controller->__construct('site', Object(yii\web\Application), Array)
+#3 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(412): ReflectionClass->newInstanceArgs(Array)
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(171): yii\di\Container->build('admin\\controlle...', Array, Array)
+#5 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/BaseYii.php(345): yii\di\Container->get('admin\\controlle...', Array)
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(642): yii\BaseYii::createObject('admin\\controlle...', Array)
+#7 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(596): yii\base\Module->createControllerByID('site')
+#8 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(522): yii\base\Module->createController('login')
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/Application.php(104): yii\base\Module->runAction('site/login', Array)
+#10 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /Users/jony/Htdocs/gxtewang/public/admin/index.php(17): yii\base\Application->run()
+#12 {main}
+2020-12-15 08:41:15 [127.0.0.1][-][5kt6mdu7hkejeialurvsv834s5][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'sensorsdata2015jssdkcross' => '{\"distinct_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"$device_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"props\":{\"$latest_traffic_source_type\":\"直接流量\",\"$latest_referrer\":\"\",\"$latest_referrer_host\":\"\",\"$latest_search_keyword\":\"未取到值_直接打开\"}}'
+    '_ga' => 'GA1.2.916450568.1600856879'
+    'yii2-mall-admin' => '64ptr66k8fnbpk4av7se7hm5dq'
+    '_identity-admin' => '2d147305bc623cb8e80a42937d1affd64ad929a6b6ab3c6123c291c9d170c44ca:2:{i:0;s:15:\"_identity-admin\";i:1;s:48:\"[\"1\",\"WW68ZCn8DZ-jnqIV-ezDZ7RttiGHMHMz\",2592000]\";}'
+    '_identity' => '25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a:2:{i:0;s:9:\"_identity\";i:1;s:48:\"[\"1\",\"52g8gXAF-fX5LXhFWd8SydHEO7-TdEGa\",2592000]\";}'
+    '_csrf' => '32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX\";}'
+    'advanced-admin' => '5kt6mdu7hkejeialurvsv834s5'
+    '_csrf-admin' => '5c4085fb9bf8399aa4db129fce1009688fd71a73f99754d124ac898347522c8da:2:{i:0;s:11:\"_csrf-admin\";i:1;s:32:\"aZWDQBPuf2sa2lwh7aAudhoXYMZst6zW\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://admin.gxtewang.lvh.me/'
+]
+
+$_SERVER = [
+    'USER' => 'jony'
+    'HOME' => '/Users/jony'
+    'HTTP_COOKIE' => 'sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22%24device_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; _ga=GA1.2.916450568.1600856879; yii2-mall-admin=64ptr66k8fnbpk4av7se7hm5dq; _identity-admin=2d147305bc623cb8e80a42937d1affd64ad929a6b6ab3c6123c291c9d170c44ca%3A2%3A%7Bi%3A0%3Bs%3A15%3A%22_identity-admin%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%22WW68ZCn8DZ-jnqIV-ezDZ7RttiGHMHMz%22%2C2592000%5D%22%3B%7D; _identity=25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%2252g8gXAF-fX5LXhFWd8SydHEO7-TdEGa%22%2C2592000%5D%22%3B%7D; _csrf=32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX%22%3B%7D; advanced-admin=5kt6mdu7hkejeialurvsv834s5; _csrf-admin=5c4085fb9bf8399aa4db129fce1009688fd71a73f99754d124ac898347522c8da%3A2%3A%7Bi%3A0%3Bs%3A11%3A%22_csrf-admin%22%3Bi%3A1%3Bs%3A32%3A%22aZWDQBPuf2sa2lwh7aAudhoXYMZst6zW%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.60'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => 'admin.gxtewang.lvh.me'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '*.lvh.me'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '51613'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.19.5'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/Users/jony/Htdocs/gxtewang/public/admin'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/site/login.html'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/Users/jony/Htdocs/gxtewang/public/admin/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1608021675.0879
+    'REQUEST_TIME' => 1608021675
+]
+2020-12-15 08:46:53 [127.0.0.1][-][ij0okq5v9bicfcfg2eek9pth62][error][Error] Error: Call to undefined method common\models\User::findIdentity() in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/User.php:692
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/User.php(194): yii\web\User->renewAuthStatus()
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/User.php(362): yii\web\User->getIdentity()
+#2 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Component.php(140): yii\web\User->getIsGuest()
+#3 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2-debug/src/panels/UserPanel.php(83): yii\base\Component->__get('isGuest')
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\debug\panels\UserPanel->init()
+#5 [internal function]: yii\base\BaseObject->__construct(Array)
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(420): ReflectionClass->newInstanceArgs(Array)
+#7 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(171): yii\di\Container->build('yii\\debug\\panel...', Array, Array)
+#8 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\debug\\panel...', Array, Array)
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2-debug/src/Module.php(252): yii\BaseYii::createObject(Array)
+#10 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2-debug/src/Module.php(223): yii\debug\Module->initPanels()
+#11 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\debug\Module->init()
+#12 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(158): yii\base\BaseObject->__construct(Array)
+#13 [internal function]: yii\base\Module->__construct('debug', Object(yii\web\Application), Array)
+#14 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(412): ReflectionClass->newInstanceArgs(Array)
+#15 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(171): yii\di\Container->build('yii\\debug\\Modul...', Array, Array)
+#16 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\debug\\Modul...', Array, Array)
+#17 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(427): yii\BaseYii::createObject(Array, Array)
+#18 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(321): yii\base\Module->getModule('debug')
+#19 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/Application.php(70): yii\base\Application->bootstrap()
+#20 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(279): yii\web\Application->bootstrap()
+#21 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\base\Application->init()
+#22 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(212): yii\base\BaseObject->__construct(Array)
+#23 /Users/jony/Htdocs/gxtewang/public/admin/index.php(18): yii\base\Application->__construct(Array)
+#24 {main}
+2020-12-15 08:46:53 [127.0.0.1][-][ij0okq5v9bicfcfg2eek9pth62][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'sensorsdata2015jssdkcross' => '{\"distinct_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"$device_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"props\":{\"$latest_traffic_source_type\":\"直接流量\",\"$latest_referrer\":\"\",\"$latest_referrer_host\":\"\",\"$latest_search_keyword\":\"未取到值_直接打开\"}}'
+    '_ga' => 'GA1.2.916450568.1600856879'
+    'yii2-mall-admin' => '64ptr66k8fnbpk4av7se7hm5dq'
+    '_identity' => '25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a:2:{i:0;s:9:\"_identity\";i:1;s:48:\"[\"1\",\"52g8gXAF-fX5LXhFWd8SydHEO7-TdEGa\",2592000]\";}'
+    '_csrf' => '32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX\";}'
+    'advanced-admin' => 'ij0okq5v9bicfcfg2eek9pth62'
+    '_identity-admin' => '38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa:2:{i:0;s:15:\"_identity-admin\";i:1;s:48:\"[\"1\",\"9ji5K-tM4kbNszezagr2l-AbIx-CcU8W\",2592000]\";}'
+    '_csrf-admin' => 'a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a:2:{i:0;s:11:\"_csrf-admin\";i:1;s:32:\"97w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://admin.gxtewang.lvh.me/'
+    '__id' => '1'
+]
+
+$_SERVER = [
+    'USER' => 'jony'
+    'HOME' => '/Users/jony'
+    'HTTP_COOKIE' => 'sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22%24device_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; _ga=GA1.2.916450568.1600856879; yii2-mall-admin=64ptr66k8fnbpk4av7se7hm5dq; _identity=25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%2252g8gXAF-fX5LXhFWd8SydHEO7-TdEGa%22%2C2592000%5D%22%3B%7D; _csrf=32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX%22%3B%7D; advanced-admin=ij0okq5v9bicfcfg2eek9pth62; _identity-admin=38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa%3A2%3A%7Bi%3A0%3Bs%3A15%3A%22_identity-admin%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%229ji5K-tM4kbNszezagr2l-AbIx-CcU8W%22%2C2592000%5D%22%3B%7D; _csrf-admin=a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a%3A2%3A%7Bi%3A0%3Bs%3A11%3A%22_csrf-admin%22%3Bi%3A1%3Bs%3A32%3A%2297w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://admin.gxtewang.lvh.me/site/login.html'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.60'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => 'admin.gxtewang.lvh.me'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '*.lvh.me'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '51675'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.19.5'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/Users/jony/Htdocs/gxtewang/public/admin'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/Users/jony/Htdocs/gxtewang/public/admin/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1608022013.6918
+    'REQUEST_TIME' => 1608022013
+]
+2020-12-15 08:47:14 [127.0.0.1][-][ij0okq5v9bicfcfg2eek9pth62][error][Error] Error: Call to undefined method admin\models\User::findIdentity() in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/User.php:692
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/User.php(194): yii\web\User->renewAuthStatus()
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/User.php(362): yii\web\User->getIdentity()
+#2 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Component.php(140): yii\web\User->getIsGuest()
+#3 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2-debug/src/panels/UserPanel.php(83): yii\base\Component->__get('isGuest')
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\debug\panels\UserPanel->init()
+#5 [internal function]: yii\base\BaseObject->__construct(Array)
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(420): ReflectionClass->newInstanceArgs(Array)
+#7 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(171): yii\di\Container->build('yii\\debug\\panel...', Array, Array)
+#8 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\debug\\panel...', Array, Array)
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2-debug/src/Module.php(252): yii\BaseYii::createObject(Array)
+#10 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2-debug/src/Module.php(223): yii\debug\Module->initPanels()
+#11 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\debug\Module->init()
+#12 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(158): yii\base\BaseObject->__construct(Array)
+#13 [internal function]: yii\base\Module->__construct('debug', Object(yii\web\Application), Array)
+#14 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(412): ReflectionClass->newInstanceArgs(Array)
+#15 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(171): yii\di\Container->build('yii\\debug\\Modul...', Array, Array)
+#16 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\debug\\Modul...', Array, Array)
+#17 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(427): yii\BaseYii::createObject(Array, Array)
+#18 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(321): yii\base\Module->getModule('debug')
+#19 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/Application.php(70): yii\base\Application->bootstrap()
+#20 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(279): yii\web\Application->bootstrap()
+#21 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\base\Application->init()
+#22 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(212): yii\base\BaseObject->__construct(Array)
+#23 /Users/jony/Htdocs/gxtewang/public/admin/index.php(18): yii\base\Application->__construct(Array)
+#24 {main}
+2020-12-15 08:47:14 [127.0.0.1][-][ij0okq5v9bicfcfg2eek9pth62][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'sensorsdata2015jssdkcross' => '{\"distinct_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"$device_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"props\":{\"$latest_traffic_source_type\":\"直接流量\",\"$latest_referrer\":\"\",\"$latest_referrer_host\":\"\",\"$latest_search_keyword\":\"未取到值_直接打开\"}}'
+    '_ga' => 'GA1.2.916450568.1600856879'
+    'yii2-mall-admin' => '64ptr66k8fnbpk4av7se7hm5dq'
+    '_identity' => '25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a:2:{i:0;s:9:\"_identity\";i:1;s:48:\"[\"1\",\"52g8gXAF-fX5LXhFWd8SydHEO7-TdEGa\",2592000]\";}'
+    '_csrf' => '32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX\";}'
+    'advanced-admin' => 'ij0okq5v9bicfcfg2eek9pth62'
+    '_identity-admin' => '38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa:2:{i:0;s:15:\"_identity-admin\";i:1;s:48:\"[\"1\",\"9ji5K-tM4kbNszezagr2l-AbIx-CcU8W\",2592000]\";}'
+    '_csrf-admin' => 'a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a:2:{i:0;s:11:\"_csrf-admin\";i:1;s:32:\"97w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://admin.gxtewang.lvh.me/'
+    '__id' => '1'
+]
+
+$_SERVER = [
+    'USER' => 'jony'
+    'HOME' => '/Users/jony'
+    'HTTP_COOKIE' => 'sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22%24device_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; _ga=GA1.2.916450568.1600856879; yii2-mall-admin=64ptr66k8fnbpk4av7se7hm5dq; _identity=25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%2252g8gXAF-fX5LXhFWd8SydHEO7-TdEGa%22%2C2592000%5D%22%3B%7D; _csrf=32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX%22%3B%7D; advanced-admin=ij0okq5v9bicfcfg2eek9pth62; _identity-admin=38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa%3A2%3A%7Bi%3A0%3Bs%3A15%3A%22_identity-admin%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%229ji5K-tM4kbNszezagr2l-AbIx-CcU8W%22%2C2592000%5D%22%3B%7D; _csrf-admin=a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a%3A2%3A%7Bi%3A0%3Bs%3A11%3A%22_csrf-admin%22%3Bi%3A1%3Bs%3A32%3A%2297w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://admin.gxtewang.lvh.me/site/login.html'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.60'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => 'admin.gxtewang.lvh.me'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '*.lvh.me'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '51675'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.19.5'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/Users/jony/Htdocs/gxtewang/public/admin'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/Users/jony/Htdocs/gxtewang/public/admin/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1608022034.194
+    'REQUEST_TIME' => 1608022034
+]
+2020-12-15 08:47:15 [127.0.0.1][-][ij0okq5v9bicfcfg2eek9pth62][error][Error] Error: Call to undefined method admin\models\User::findIdentity() in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/User.php:692
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/User.php(194): yii\web\User->renewAuthStatus()
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/User.php(362): yii\web\User->getIdentity()
+#2 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Component.php(140): yii\web\User->getIsGuest()
+#3 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2-debug/src/panels/UserPanel.php(83): yii\base\Component->__get('isGuest')
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\debug\panels\UserPanel->init()
+#5 [internal function]: yii\base\BaseObject->__construct(Array)
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(420): ReflectionClass->newInstanceArgs(Array)
+#7 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(171): yii\di\Container->build('yii\\debug\\panel...', Array, Array)
+#8 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\debug\\panel...', Array, Array)
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2-debug/src/Module.php(252): yii\BaseYii::createObject(Array)
+#10 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2-debug/src/Module.php(223): yii\debug\Module->initPanels()
+#11 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\debug\Module->init()
+#12 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(158): yii\base\BaseObject->__construct(Array)
+#13 [internal function]: yii\base\Module->__construct('debug', Object(yii\web\Application), Array)
+#14 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(412): ReflectionClass->newInstanceArgs(Array)
+#15 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(171): yii\di\Container->build('yii\\debug\\Modul...', Array, Array)
+#16 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\debug\\Modul...', Array, Array)
+#17 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(427): yii\BaseYii::createObject(Array, Array)
+#18 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(321): yii\base\Module->getModule('debug')
+#19 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/Application.php(70): yii\base\Application->bootstrap()
+#20 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(279): yii\web\Application->bootstrap()
+#21 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\base\Application->init()
+#22 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(212): yii\base\BaseObject->__construct(Array)
+#23 /Users/jony/Htdocs/gxtewang/public/admin/index.php(18): yii\base\Application->__construct(Array)
+#24 {main}
+2020-12-15 08:47:15 [127.0.0.1][-][ij0okq5v9bicfcfg2eek9pth62][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'sensorsdata2015jssdkcross' => '{\"distinct_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"$device_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"props\":{\"$latest_traffic_source_type\":\"直接流量\",\"$latest_referrer\":\"\",\"$latest_referrer_host\":\"\",\"$latest_search_keyword\":\"未取到值_直接打开\"}}'
+    '_ga' => 'GA1.2.916450568.1600856879'
+    'yii2-mall-admin' => '64ptr66k8fnbpk4av7se7hm5dq'
+    '_identity' => '25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a:2:{i:0;s:9:\"_identity\";i:1;s:48:\"[\"1\",\"52g8gXAF-fX5LXhFWd8SydHEO7-TdEGa\",2592000]\";}'
+    '_csrf' => '32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX\";}'
+    'advanced-admin' => 'ij0okq5v9bicfcfg2eek9pth62'
+    '_identity-admin' => '38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa:2:{i:0;s:15:\"_identity-admin\";i:1;s:48:\"[\"1\",\"9ji5K-tM4kbNszezagr2l-AbIx-CcU8W\",2592000]\";}'
+    '_csrf-admin' => 'a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a:2:{i:0;s:11:\"_csrf-admin\";i:1;s:32:\"97w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://admin.gxtewang.lvh.me/'
+    '__id' => '1'
+]
+
+$_SERVER = [
+    'USER' => 'jony'
+    'HOME' => '/Users/jony'
+    'HTTP_COOKIE' => 'sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22%24device_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; _ga=GA1.2.916450568.1600856879; yii2-mall-admin=64ptr66k8fnbpk4av7se7hm5dq; _identity=25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%2252g8gXAF-fX5LXhFWd8SydHEO7-TdEGa%22%2C2592000%5D%22%3B%7D; _csrf=32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX%22%3B%7D; advanced-admin=ij0okq5v9bicfcfg2eek9pth62; _identity-admin=38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa%3A2%3A%7Bi%3A0%3Bs%3A15%3A%22_identity-admin%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%229ji5K-tM4kbNszezagr2l-AbIx-CcU8W%22%2C2592000%5D%22%3B%7D; _csrf-admin=a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a%3A2%3A%7Bi%3A0%3Bs%3A11%3A%22_csrf-admin%22%3Bi%3A1%3Bs%3A32%3A%2297w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://admin.gxtewang.lvh.me/site/login.html'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.60'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => 'admin.gxtewang.lvh.me'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '*.lvh.me'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '51675'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.19.5'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/Users/jony/Htdocs/gxtewang/public/admin'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/Users/jony/Htdocs/gxtewang/public/admin/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1608022035.2799
+    'REQUEST_TIME' => 1608022035
+]
+2020-12-15 08:47:15 [127.0.0.1][-][ij0okq5v9bicfcfg2eek9pth62][error][Error] Error: Call to undefined method admin\models\User::findIdentity() in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/User.php:692
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/User.php(194): yii\web\User->renewAuthStatus()
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/User.php(362): yii\web\User->getIdentity()
+#2 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Component.php(140): yii\web\User->getIsGuest()
+#3 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2-debug/src/panels/UserPanel.php(83): yii\base\Component->__get('isGuest')
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\debug\panels\UserPanel->init()
+#5 [internal function]: yii\base\BaseObject->__construct(Array)
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(420): ReflectionClass->newInstanceArgs(Array)
+#7 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(171): yii\di\Container->build('yii\\debug\\panel...', Array, Array)
+#8 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\debug\\panel...', Array, Array)
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2-debug/src/Module.php(252): yii\BaseYii::createObject(Array)
+#10 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2-debug/src/Module.php(223): yii\debug\Module->initPanels()
+#11 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\debug\Module->init()
+#12 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(158): yii\base\BaseObject->__construct(Array)
+#13 [internal function]: yii\base\Module->__construct('debug', Object(yii\web\Application), Array)
+#14 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(412): ReflectionClass->newInstanceArgs(Array)
+#15 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(171): yii\di\Container->build('yii\\debug\\Modul...', Array, Array)
+#16 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('yii\\debug\\Modul...', Array, Array)
+#17 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(427): yii\BaseYii::createObject(Array, Array)
+#18 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(321): yii\base\Module->getModule('debug')
+#19 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/Application.php(70): yii\base\Application->bootstrap()
+#20 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(279): yii\web\Application->bootstrap()
+#21 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\base\Application->init()
+#22 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(212): yii\base\BaseObject->__construct(Array)
+#23 /Users/jony/Htdocs/gxtewang/public/admin/index.php(18): yii\base\Application->__construct(Array)
+#24 {main}
+2020-12-15 08:47:15 [127.0.0.1][-][ij0okq5v9bicfcfg2eek9pth62][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'sensorsdata2015jssdkcross' => '{\"distinct_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"$device_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"props\":{\"$latest_traffic_source_type\":\"直接流量\",\"$latest_referrer\":\"\",\"$latest_referrer_host\":\"\",\"$latest_search_keyword\":\"未取到值_直接打开\"}}'
+    '_ga' => 'GA1.2.916450568.1600856879'
+    'yii2-mall-admin' => '64ptr66k8fnbpk4av7se7hm5dq'
+    '_identity' => '25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a:2:{i:0;s:9:\"_identity\";i:1;s:48:\"[\"1\",\"52g8gXAF-fX5LXhFWd8SydHEO7-TdEGa\",2592000]\";}'
+    '_csrf' => '32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX\";}'
+    'advanced-admin' => 'ij0okq5v9bicfcfg2eek9pth62'
+    '_identity-admin' => '38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa:2:{i:0;s:15:\"_identity-admin\";i:1;s:48:\"[\"1\",\"9ji5K-tM4kbNszezagr2l-AbIx-CcU8W\",2592000]\";}'
+    '_csrf-admin' => 'a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a:2:{i:0;s:11:\"_csrf-admin\";i:1;s:32:\"97w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://admin.gxtewang.lvh.me/'
+    '__id' => '1'
+]
+
+$_SERVER = [
+    'USER' => 'jony'
+    'HOME' => '/Users/jony'
+    'HTTP_COOKIE' => 'sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22%24device_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; _ga=GA1.2.916450568.1600856879; yii2-mall-admin=64ptr66k8fnbpk4av7se7hm5dq; _identity=25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%2252g8gXAF-fX5LXhFWd8SydHEO7-TdEGa%22%2C2592000%5D%22%3B%7D; _csrf=32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX%22%3B%7D; advanced-admin=ij0okq5v9bicfcfg2eek9pth62; _identity-admin=38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa%3A2%3A%7Bi%3A0%3Bs%3A15%3A%22_identity-admin%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%229ji5K-tM4kbNszezagr2l-AbIx-CcU8W%22%2C2592000%5D%22%3B%7D; _csrf-admin=a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a%3A2%3A%7Bi%3A0%3Bs%3A11%3A%22_csrf-admin%22%3Bi%3A1%3Bs%3A32%3A%2297w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://admin.gxtewang.lvh.me/site/login.html'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.60'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => 'admin.gxtewang.lvh.me'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '*.lvh.me'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '51675'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.19.5'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/Users/jony/Htdocs/gxtewang/public/admin'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/Users/jony/Htdocs/gxtewang/public/admin/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1608022035.4383
+    'REQUEST_TIME' => 1608022035
+]
+2020-12-15 08:47:33 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "auth". in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/Application.php(104): yii\base\Module->runAction('auth', Array)
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/jony/Htdocs/gxtewang/public/admin/index.php(18): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/Application.php:116
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Users/jony/Htdocs/gxtewang/public/admin/index.php(18): yii\base\Application->run()
+#2 {main}
+2020-12-15 08:47:33 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'sensorsdata2015jssdkcross' => '{\"distinct_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"$device_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"props\":{\"$latest_traffic_source_type\":\"直接流量\",\"$latest_referrer\":\"\",\"$latest_referrer_host\":\"\",\"$latest_search_keyword\":\"未取到值_直接打开\"}}'
+    '_ga' => 'GA1.2.916450568.1600856879'
+    'yii2-mall-admin' => '64ptr66k8fnbpk4av7se7hm5dq'
+    '_identity' => '25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a:2:{i:0;s:9:\"_identity\";i:1;s:48:\"[\"1\",\"52g8gXAF-fX5LXhFWd8SydHEO7-TdEGa\",2592000]\";}'
+    '_csrf' => '32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX\";}'
+    'advanced-admin' => 'ij0okq5v9bicfcfg2eek9pth62'
+    '_identity-admin' => '38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa:2:{i:0;s:15:\"_identity-admin\";i:1;s:48:\"[\"1\",\"9ji5K-tM4kbNszezagr2l-AbIx-CcU8W\",2592000]\";}'
+    '_csrf-admin' => 'a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a:2:{i:0;s:11:\"_csrf-admin\";i:1;s:32:\"97w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://admin.gxtewang.lvh.me/'
+    '__id' => '1'
+]
+
+$_SERVER = [
+    'USER' => 'jony'
+    'HOME' => '/Users/jony'
+    'HTTP_COOKIE' => 'sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22%24device_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; _ga=GA1.2.916450568.1600856879; yii2-mall-admin=64ptr66k8fnbpk4av7se7hm5dq; _identity=25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%2252g8gXAF-fX5LXhFWd8SydHEO7-TdEGa%22%2C2592000%5D%22%3B%7D; _csrf=32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX%22%3B%7D; advanced-admin=ij0okq5v9bicfcfg2eek9pth62; _identity-admin=38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa%3A2%3A%7Bi%3A0%3Bs%3A15%3A%22_identity-admin%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%229ji5K-tM4kbNszezagr2l-AbIx-CcU8W%22%2C2592000%5D%22%3B%7D; _csrf-admin=a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a%3A2%3A%7Bi%3A0%3Bs%3A11%3A%22_csrf-admin%22%3Bi%3A1%3Bs%3A32%3A%2297w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://admin.gxtewang.lvh.me/role.html'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.60'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => 'admin.gxtewang.lvh.me'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '*.lvh.me'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '51675'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.19.5'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/Users/jony/Htdocs/gxtewang/public/admin'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/auth.html'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/Users/jony/Htdocs/gxtewang/public/admin/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1608022053.4062
+    'REQUEST_TIME' => 1608022053
+]
+2020-12-15 08:47:42 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: admin\models\Admin::getRoleName() in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Component.php:301
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/apps/admin/views/admin/index.php(28): yii\base\Component->__call('getRoleName', Array)
+#1 [internal function]: yii\base\View->{closure}(Object(admin\models\Admin), '1', 0, Object(yii\grid\DataColumn))
+#2 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/DataColumn.php(231): call_user_func(Object(Closure), Object(admin\models\Admin), '1', 0, Object(yii\grid\DataColumn))
+#3 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/DataColumn.php(245): yii\grid\DataColumn->getDataCellValue(Object(admin\models\Admin), '1', 0)
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/Column.php(111): yii\grid\DataColumn->renderDataCellContent(Object(admin\models\Admin), '1', 0)
+#5 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/GridView.php(525): yii\grid\Column->renderDataCell(Object(admin\models\Admin), '1', 0)
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/GridView.php(494): yii\grid\GridView->renderTableRow(Object(admin\models\Admin), '1', 0)
+#7 /Users/jony/Htdocs/gxtewang/vendor/jonneyless/yii2-admin-asset/grid/GridView.php(78): yii\grid\GridView->renderTableBody()
+#8 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/widgets/BaseListView.php(160): ijony\admin\grid\GridView->renderItems()
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/GridView.php(326): yii\widgets\BaseListView->renderSection('{items}')
+#10 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/widgets/BaseListView.php(135): yii\grid\GridView->renderSection('{items}')
+#11 [internal function]: yii\widgets\BaseListView->yii\widgets\{closure}(Array)
+#12 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/widgets/BaseListView.php(138): preg_replace_callback('/{\\w+}/', Object(Closure), '{items}')
+#13 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/GridView.php(301): yii\widgets\BaseListView->run()
+#14 /Users/jony/Htdocs/gxtewang/vendor/jonneyless/yii2-admin-asset/grid/GridView.php(48): yii\grid\GridView->run()
+#15 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Widget.php(141): ijony\admin\grid\GridView->run()
+#16 /Users/jony/Htdocs/gxtewang/apps/admin/views/admin/index.php(18): yii\base\Widget::widget(Array)
+#17 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(348): require('/Users/jony/Htd...')
+#18 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/Users/jony/Htd...', Array)
+#19 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/Users/jony/Htd...', Array, Object(admin\controllers\AdminController))
+#20 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(410): yii\base\View->render('index', Array, Object(admin\controllers\AdminController))
+#21 /Users/jony/Htdocs/gxtewang/apps/admin/controllers/AdminController.php(58): yii\base\Controller->render('index', Array)
+#22 [internal function]: admin\controllers\AdminController->actionIndex()
+#23 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#24 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(181): yii\base\InlineAction->runWithParams(Array)
+#25 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#26 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/Application.php(104): yii\base\Module->runAction('admin', Array)
+#27 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Application->handleRequest(Object(yii\web\Request))
+#28 /Users/jony/Htdocs/gxtewang/public/admin/index.php(18): yii\base\Application->run()
+#29 {main}
+2020-12-15 08:47:42 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'sensorsdata2015jssdkcross' => '{\"distinct_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"$device_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"props\":{\"$latest_traffic_source_type\":\"直接流量\",\"$latest_referrer\":\"\",\"$latest_referrer_host\":\"\",\"$latest_search_keyword\":\"未取到值_直接打开\"}}'
+    '_ga' => 'GA1.2.916450568.1600856879'
+    'yii2-mall-admin' => '64ptr66k8fnbpk4av7se7hm5dq'
+    '_identity' => '25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a:2:{i:0;s:9:\"_identity\";i:1;s:48:\"[\"1\",\"52g8gXAF-fX5LXhFWd8SydHEO7-TdEGa\",2592000]\";}'
+    '_csrf' => '32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX\";}'
+    'advanced-admin' => 'ij0okq5v9bicfcfg2eek9pth62'
+    '_identity-admin' => '38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa:2:{i:0;s:15:\"_identity-admin\";i:1;s:48:\"[\"1\",\"9ji5K-tM4kbNszezagr2l-AbIx-CcU8W\",2592000]\";}'
+    '_csrf-admin' => 'a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a:2:{i:0;s:11:\"_csrf-admin\";i:1;s:32:\"97w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://admin.gxtewang.lvh.me/'
+    '__id' => '1'
+]
+
+$_SERVER = [
+    'USER' => 'jony'
+    'HOME' => '/Users/jony'
+    'HTTP_COOKIE' => 'sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22%24device_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; _ga=GA1.2.916450568.1600856879; yii2-mall-admin=64ptr66k8fnbpk4av7se7hm5dq; _identity=25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%2252g8gXAF-fX5LXhFWd8SydHEO7-TdEGa%22%2C2592000%5D%22%3B%7D; _csrf=32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX%22%3B%7D; advanced-admin=ij0okq5v9bicfcfg2eek9pth62; _identity-admin=38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa%3A2%3A%7Bi%3A0%3Bs%3A15%3A%22_identity-admin%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%229ji5K-tM4kbNszezagr2l-AbIx-CcU8W%22%2C2592000%5D%22%3B%7D; _csrf-admin=a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a%3A2%3A%7Bi%3A0%3Bs%3A11%3A%22_csrf-admin%22%3Bi%3A1%3Bs%3A32%3A%2297w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://admin.gxtewang.lvh.me/role.html'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.60'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => 'admin.gxtewang.lvh.me'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '*.lvh.me'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '51676'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.19.5'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/Users/jony/Htdocs/gxtewang/public/admin'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/admin.html'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/Users/jony/Htdocs/gxtewang/public/admin/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1608022062.8199
+    'REQUEST_TIME' => 1608022062
+]
+2020-12-15 08:48:47 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "auth". in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/Application.php(104): yii\base\Module->runAction('auth', Array)
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/jony/Htdocs/gxtewang/public/admin/index.php(18): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/Application.php:116
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Users/jony/Htdocs/gxtewang/public/admin/index.php(18): yii\base\Application->run()
+#2 {main}
+2020-12-15 08:48:47 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'sensorsdata2015jssdkcross' => '{\"distinct_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"$device_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"props\":{\"$latest_traffic_source_type\":\"直接流量\",\"$latest_referrer\":\"\",\"$latest_referrer_host\":\"\",\"$latest_search_keyword\":\"未取到值_直接打开\"}}'
+    '_ga' => 'GA1.2.916450568.1600856879'
+    'yii2-mall-admin' => '64ptr66k8fnbpk4av7se7hm5dq'
+    '_identity' => '25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a:2:{i:0;s:9:\"_identity\";i:1;s:48:\"[\"1\",\"52g8gXAF-fX5LXhFWd8SydHEO7-TdEGa\",2592000]\";}'
+    '_csrf' => '32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX\";}'
+    'advanced-admin' => 'ij0okq5v9bicfcfg2eek9pth62'
+    '_identity-admin' => '38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa:2:{i:0;s:15:\"_identity-admin\";i:1;s:48:\"[\"1\",\"9ji5K-tM4kbNszezagr2l-AbIx-CcU8W\",2592000]\";}'
+    '_csrf-admin' => 'a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a:2:{i:0;s:11:\"_csrf-admin\";i:1;s:32:\"97w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://admin.gxtewang.lvh.me/'
+    '__id' => '1'
+]
+
+$_SERVER = [
+    'USER' => 'jony'
+    'HOME' => '/Users/jony'
+    'HTTP_COOKIE' => 'sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22%24device_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; _ga=GA1.2.916450568.1600856879; yii2-mall-admin=64ptr66k8fnbpk4av7se7hm5dq; _identity=25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%2252g8gXAF-fX5LXhFWd8SydHEO7-TdEGa%22%2C2592000%5D%22%3B%7D; _csrf=32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX%22%3B%7D; advanced-admin=ij0okq5v9bicfcfg2eek9pth62; _identity-admin=38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa%3A2%3A%7Bi%3A0%3Bs%3A15%3A%22_identity-admin%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%229ji5K-tM4kbNszezagr2l-AbIx-CcU8W%22%2C2592000%5D%22%3B%7D; _csrf-admin=a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a%3A2%3A%7Bi%3A0%3Bs%3A11%3A%22_csrf-admin%22%3Bi%3A1%3Bs%3A32%3A%2297w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://admin.gxtewang.lvh.me/admin.html'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.60'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => 'admin.gxtewang.lvh.me'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '*.lvh.me'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '51710'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.19.5'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/Users/jony/Htdocs/gxtewang/public/admin'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/auth.html'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/Users/jony/Htdocs/gxtewang/public/admin/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1608022127.2454
+    'REQUEST_TIME' => 1608022127
+]
+2020-12-15 08:49:17 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][error][yii\base\InvalidCallException] yii\base\InvalidCallException: Getting write-only property: admin\models\Admin::password in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Component.php:152
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/BaseActiveRecord.php(298): yii\base\Component->__get('password')
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/helpers/BaseHtml.php(2244): yii\db\BaseActiveRecord->__get('password')
+#2 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/helpers/BaseHtml.php(1363): yii\helpers\BaseHtml::getAttributeValue(Object(admin\models\Admin), 'password')
+#3 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/helpers/BaseHtml.php(1477): yii\helpers\BaseHtml::activeInput('password', Object(admin\models\Admin), 'password', Array)
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/widgets/ActiveField.php(458): yii\helpers\BaseHtml::activePasswordInput(Object(admin\models\Admin), 'password', Array)
+#5 /Users/jony/Htdocs/gxtewang/apps/admin/views/admin/reset.php(34): yii\widgets\ActiveField->passwordInput(Array)
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(348): require('/Users/jony/Htd...')
+#7 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/Users/jony/Htd...', Array)
+#8 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/Users/jony/Htd...', Array, Object(admin\controllers\AdminController))
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(410): yii\base\View->render('reset', Array, Object(admin\controllers\AdminController))
+#10 /Users/jony/Htdocs/gxtewang/apps/admin/controllers/AdminController.php(235): yii\base\Controller->render('reset', Array)
+#11 [internal function]: admin\controllers\AdminController->actionReset()
+#12 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#13 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(181): yii\base\InlineAction->runWithParams(Array)
+#14 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('reset', Array)
+#15 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/Application.php(104): yii\base\Module->runAction('admin/reset', Array)
+#16 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 /Users/jony/Htdocs/gxtewang/public/admin/index.php(18): yii\base\Application->run()
+#18 {main}
+2020-12-15 08:49:17 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'sensorsdata2015jssdkcross' => '{\"distinct_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"$device_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"props\":{\"$latest_traffic_source_type\":\"直接流量\",\"$latest_referrer\":\"\",\"$latest_referrer_host\":\"\",\"$latest_search_keyword\":\"未取到值_直接打开\"}}'
+    '_ga' => 'GA1.2.916450568.1600856879'
+    'yii2-mall-admin' => '64ptr66k8fnbpk4av7se7hm5dq'
+    '_identity' => '25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a:2:{i:0;s:9:\"_identity\";i:1;s:48:\"[\"1\",\"52g8gXAF-fX5LXhFWd8SydHEO7-TdEGa\",2592000]\";}'
+    '_csrf' => '32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX\";}'
+    'advanced-admin' => 'ij0okq5v9bicfcfg2eek9pth62'
+    '_identity-admin' => '38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa:2:{i:0;s:15:\"_identity-admin\";i:1;s:48:\"[\"1\",\"9ji5K-tM4kbNszezagr2l-AbIx-CcU8W\",2592000]\";}'
+    '_csrf-admin' => 'a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a:2:{i:0;s:11:\"_csrf-admin\";i:1;s:32:\"97w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://admin.gxtewang.lvh.me/'
+    '__id' => '1'
+]
+
+$_SERVER = [
+    'USER' => 'jony'
+    'HOME' => '/Users/jony'
+    'HTTP_COOKIE' => 'sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22%24device_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; _ga=GA1.2.916450568.1600856879; yii2-mall-admin=64ptr66k8fnbpk4av7se7hm5dq; _identity=25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%2252g8gXAF-fX5LXhFWd8SydHEO7-TdEGa%22%2C2592000%5D%22%3B%7D; _csrf=32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX%22%3B%7D; advanced-admin=ij0okq5v9bicfcfg2eek9pth62; _identity-admin=38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa%3A2%3A%7Bi%3A0%3Bs%3A15%3A%22_identity-admin%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%229ji5K-tM4kbNszezagr2l-AbIx-CcU8W%22%2C2592000%5D%22%3B%7D; _csrf-admin=a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a%3A2%3A%7Bi%3A0%3Bs%3A11%3A%22_csrf-admin%22%3Bi%3A1%3Bs%3A32%3A%2297w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://admin.gxtewang.lvh.me/'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.60'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => 'admin.gxtewang.lvh.me'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '*.lvh.me'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '51709'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.19.5'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/Users/jony/Htdocs/gxtewang/public/admin'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/admin/reset.html'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/Users/jony/Htdocs/gxtewang/public/admin/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1608022157.7576
+    'REQUEST_TIME' => 1608022157
+]
+2020-12-15 08:49:43 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][error][yii\base\UnknownPropertyException] yii\base\UnknownPropertyException: Getting unknown property: admin\models\Admin::repassword in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Component.php:155
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/BaseActiveRecord.php(298): yii\base\Component->__get('repassword')
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/helpers/BaseHtml.php(2244): yii\db\BaseActiveRecord->__get('repassword')
+#2 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/helpers/BaseHtml.php(1363): yii\helpers\BaseHtml::getAttributeValue(Object(admin\models\Admin), 'repassword')
+#3 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/helpers/BaseHtml.php(1477): yii\helpers\BaseHtml::activeInput('password', Object(admin\models\Admin), 'repassword', Array)
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/widgets/ActiveField.php(458): yii\helpers\BaseHtml::activePasswordInput(Object(admin\models\Admin), 'repassword', Array)
+#5 /Users/jony/Htdocs/gxtewang/apps/admin/views/admin/reset.php(35): yii\widgets\ActiveField->passwordInput(Array)
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(348): require('/Users/jony/Htd...')
+#7 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/Users/jony/Htd...', Array)
+#8 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/Users/jony/Htd...', Array, Object(admin\controllers\AdminController))
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(410): yii\base\View->render('reset', Array, Object(admin\controllers\AdminController))
+#10 /Users/jony/Htdocs/gxtewang/apps/admin/controllers/AdminController.php(235): yii\base\Controller->render('reset', Array)
+#11 [internal function]: admin\controllers\AdminController->actionReset()
+#12 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#13 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(181): yii\base\InlineAction->runWithParams(Array)
+#14 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('reset', Array)
+#15 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/Application.php(104): yii\base\Module->runAction('admin/reset', Array)
+#16 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 /Users/jony/Htdocs/gxtewang/public/admin/index.php(18): yii\base\Application->run()
+#18 {main}
+2020-12-15 08:49:43 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'sensorsdata2015jssdkcross' => '{\"distinct_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"$device_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"props\":{\"$latest_traffic_source_type\":\"直接流量\",\"$latest_referrer\":\"\",\"$latest_referrer_host\":\"\",\"$latest_search_keyword\":\"未取到值_直接打开\"}}'
+    '_ga' => 'GA1.2.916450568.1600856879'
+    'yii2-mall-admin' => '64ptr66k8fnbpk4av7se7hm5dq'
+    '_identity' => '25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a:2:{i:0;s:9:\"_identity\";i:1;s:48:\"[\"1\",\"52g8gXAF-fX5LXhFWd8SydHEO7-TdEGa\",2592000]\";}'
+    '_csrf' => '32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX\";}'
+    'advanced-admin' => 'ij0okq5v9bicfcfg2eek9pth62'
+    '_identity-admin' => '38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa:2:{i:0;s:15:\"_identity-admin\";i:1;s:48:\"[\"1\",\"9ji5K-tM4kbNszezagr2l-AbIx-CcU8W\",2592000]\";}'
+    '_csrf-admin' => 'a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a:2:{i:0;s:11:\"_csrf-admin\";i:1;s:32:\"97w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://admin.gxtewang.lvh.me/'
+    '__id' => '1'
+]
+
+$_SERVER = [
+    'USER' => 'jony'
+    'HOME' => '/Users/jony'
+    'HTTP_COOKIE' => 'sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22%24device_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; _ga=GA1.2.916450568.1600856879; yii2-mall-admin=64ptr66k8fnbpk4av7se7hm5dq; _identity=25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%2252g8gXAF-fX5LXhFWd8SydHEO7-TdEGa%22%2C2592000%5D%22%3B%7D; _csrf=32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX%22%3B%7D; advanced-admin=ij0okq5v9bicfcfg2eek9pth62; _identity-admin=38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa%3A2%3A%7Bi%3A0%3Bs%3A15%3A%22_identity-admin%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%229ji5K-tM4kbNszezagr2l-AbIx-CcU8W%22%2C2592000%5D%22%3B%7D; _csrf-admin=a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a%3A2%3A%7Bi%3A0%3Bs%3A11%3A%22_csrf-admin%22%3Bi%3A1%3Bs%3A32%3A%2297w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://admin.gxtewang.lvh.me/'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.60'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => 'admin.gxtewang.lvh.me'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '*.lvh.me'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '51709'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.19.5'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/Users/jony/Htdocs/gxtewang/public/admin'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/admin/reset.html'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/Users/jony/Htdocs/gxtewang/public/admin/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1608022183.1024
+    'REQUEST_TIME' => 1608022183
+]
+2020-12-15 08:49:52 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][error][yii\base\UnknownPropertyException] yii\base\UnknownPropertyException: Getting unknown property: admin\models\Admin::repassword in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Component.php:155
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/BaseActiveRecord.php(298): yii\base\Component->__get('repassword')
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/helpers/BaseHtml.php(2244): yii\db\BaseActiveRecord->__get('repassword')
+#2 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/helpers/BaseHtml.php(1363): yii\helpers\BaseHtml::getAttributeValue(Object(admin\models\Admin), 'repassword')
+#3 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/helpers/BaseHtml.php(1477): yii\helpers\BaseHtml::activeInput('password', Object(admin\models\Admin), 'repassword', Array)
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/widgets/ActiveField.php(458): yii\helpers\BaseHtml::activePasswordInput(Object(admin\models\Admin), 'repassword', Array)
+#5 /Users/jony/Htdocs/gxtewang/apps/admin/views/admin/reset.php(35): yii\widgets\ActiveField->passwordInput(Array)
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(348): require('/Users/jony/Htd...')
+#7 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/Users/jony/Htd...', Array)
+#8 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/Users/jony/Htd...', Array, Object(admin\controllers\AdminController))
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(410): yii\base\View->render('reset', Array, Object(admin\controllers\AdminController))
+#10 /Users/jony/Htdocs/gxtewang/apps/admin/controllers/AdminController.php(235): yii\base\Controller->render('reset', Array)
+#11 [internal function]: admin\controllers\AdminController->actionReset()
+#12 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#13 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(181): yii\base\InlineAction->runWithParams(Array)
+#14 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('reset', Array)
+#15 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/Application.php(104): yii\base\Module->runAction('admin/reset', Array)
+#16 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 /Users/jony/Htdocs/gxtewang/public/admin/index.php(18): yii\base\Application->run()
+#18 {main}
+2020-12-15 08:49:52 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'sensorsdata2015jssdkcross' => '{\"distinct_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"$device_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"props\":{\"$latest_traffic_source_type\":\"直接流量\",\"$latest_referrer\":\"\",\"$latest_referrer_host\":\"\",\"$latest_search_keyword\":\"未取到值_直接打开\"}}'
+    '_ga' => 'GA1.2.916450568.1600856879'
+    'yii2-mall-admin' => '64ptr66k8fnbpk4av7se7hm5dq'
+    '_identity' => '25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a:2:{i:0;s:9:\"_identity\";i:1;s:48:\"[\"1\",\"52g8gXAF-fX5LXhFWd8SydHEO7-TdEGa\",2592000]\";}'
+    '_csrf' => '32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX\";}'
+    'advanced-admin' => 'ij0okq5v9bicfcfg2eek9pth62'
+    '_identity-admin' => '38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa:2:{i:0;s:15:\"_identity-admin\";i:1;s:48:\"[\"1\",\"9ji5K-tM4kbNszezagr2l-AbIx-CcU8W\",2592000]\";}'
+    '_csrf-admin' => 'a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a:2:{i:0;s:11:\"_csrf-admin\";i:1;s:32:\"97w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://admin.gxtewang.lvh.me/'
+    '__id' => '1'
+]
+
+$_SERVER = [
+    'USER' => 'jony'
+    'HOME' => '/Users/jony'
+    'HTTP_COOKIE' => 'sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22%24device_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; _ga=GA1.2.916450568.1600856879; yii2-mall-admin=64ptr66k8fnbpk4av7se7hm5dq; _identity=25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%2252g8gXAF-fX5LXhFWd8SydHEO7-TdEGa%22%2C2592000%5D%22%3B%7D; _csrf=32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX%22%3B%7D; advanced-admin=ij0okq5v9bicfcfg2eek9pth62; _identity-admin=38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa%3A2%3A%7Bi%3A0%3Bs%3A15%3A%22_identity-admin%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%229ji5K-tM4kbNszezagr2l-AbIx-CcU8W%22%2C2592000%5D%22%3B%7D; _csrf-admin=a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a%3A2%3A%7Bi%3A0%3Bs%3A11%3A%22_csrf-admin%22%3Bi%3A1%3Bs%3A32%3A%2297w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://admin.gxtewang.lvh.me/'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.60'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => 'admin.gxtewang.lvh.me'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '*.lvh.me'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '51709'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.19.5'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/Users/jony/Htdocs/gxtewang/public/admin'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/admin/reset.html'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/Users/jony/Htdocs/gxtewang/public/admin/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1608022192.9464
+    'REQUEST_TIME' => 1608022192
+]
+2020-12-15 08:49:53 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][error][yii\base\UnknownPropertyException] yii\base\UnknownPropertyException: Getting unknown property: admin\models\Admin::repassword in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Component.php:155
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/BaseActiveRecord.php(298): yii\base\Component->__get('repassword')
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/helpers/BaseHtml.php(2244): yii\db\BaseActiveRecord->__get('repassword')
+#2 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/helpers/BaseHtml.php(1363): yii\helpers\BaseHtml::getAttributeValue(Object(admin\models\Admin), 'repassword')
+#3 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/helpers/BaseHtml.php(1477): yii\helpers\BaseHtml::activeInput('password', Object(admin\models\Admin), 'repassword', Array)
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/widgets/ActiveField.php(458): yii\helpers\BaseHtml::activePasswordInput(Object(admin\models\Admin), 'repassword', Array)
+#5 /Users/jony/Htdocs/gxtewang/apps/admin/views/admin/reset.php(35): yii\widgets\ActiveField->passwordInput(Array)
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(348): require('/Users/jony/Htd...')
+#7 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/Users/jony/Htd...', Array)
+#8 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/Users/jony/Htd...', Array, Object(admin\controllers\AdminController))
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(410): yii\base\View->render('reset', Array, Object(admin\controllers\AdminController))
+#10 /Users/jony/Htdocs/gxtewang/apps/admin/controllers/AdminController.php(235): yii\base\Controller->render('reset', Array)
+#11 [internal function]: admin\controllers\AdminController->actionReset()
+#12 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#13 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(181): yii\base\InlineAction->runWithParams(Array)
+#14 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('reset', Array)
+#15 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/Application.php(104): yii\base\Module->runAction('admin/reset', Array)
+#16 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 /Users/jony/Htdocs/gxtewang/public/admin/index.php(18): yii\base\Application->run()
+#18 {main}
+2020-12-15 08:49:53 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'sensorsdata2015jssdkcross' => '{\"distinct_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"$device_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"props\":{\"$latest_traffic_source_type\":\"直接流量\",\"$latest_referrer\":\"\",\"$latest_referrer_host\":\"\",\"$latest_search_keyword\":\"未取到值_直接打开\"}}'
+    '_ga' => 'GA1.2.916450568.1600856879'
+    'yii2-mall-admin' => '64ptr66k8fnbpk4av7se7hm5dq'
+    '_identity' => '25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a:2:{i:0;s:9:\"_identity\";i:1;s:48:\"[\"1\",\"52g8gXAF-fX5LXhFWd8SydHEO7-TdEGa\",2592000]\";}'
+    '_csrf' => '32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX\";}'
+    'advanced-admin' => 'ij0okq5v9bicfcfg2eek9pth62'
+    '_identity-admin' => '38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa:2:{i:0;s:15:\"_identity-admin\";i:1;s:48:\"[\"1\",\"9ji5K-tM4kbNszezagr2l-AbIx-CcU8W\",2592000]\";}'
+    '_csrf-admin' => 'a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a:2:{i:0;s:11:\"_csrf-admin\";i:1;s:32:\"97w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://admin.gxtewang.lvh.me/'
+    '__id' => '1'
+]
+
+$_SERVER = [
+    'USER' => 'jony'
+    'HOME' => '/Users/jony'
+    'HTTP_COOKIE' => 'sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22%24device_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; _ga=GA1.2.916450568.1600856879; yii2-mall-admin=64ptr66k8fnbpk4av7se7hm5dq; _identity=25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%2252g8gXAF-fX5LXhFWd8SydHEO7-TdEGa%22%2C2592000%5D%22%3B%7D; _csrf=32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX%22%3B%7D; advanced-admin=ij0okq5v9bicfcfg2eek9pth62; _identity-admin=38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa%3A2%3A%7Bi%3A0%3Bs%3A15%3A%22_identity-admin%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%229ji5K-tM4kbNszezagr2l-AbIx-CcU8W%22%2C2592000%5D%22%3B%7D; _csrf-admin=a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a%3A2%3A%7Bi%3A0%3Bs%3A11%3A%22_csrf-admin%22%3Bi%3A1%3Bs%3A32%3A%2297w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://admin.gxtewang.lvh.me/'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.60'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => 'admin.gxtewang.lvh.me'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '*.lvh.me'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '51709'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.19.5'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/Users/jony/Htdocs/gxtewang/public/admin'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/admin/reset.html'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/Users/jony/Htdocs/gxtewang/public/admin/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1608022193.8149
+    'REQUEST_TIME' => 1608022193
+]
+2020-12-15 08:49:54 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][error][yii\base\UnknownPropertyException] yii\base\UnknownPropertyException: Getting unknown property: admin\models\Admin::repassword in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Component.php:155
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/BaseActiveRecord.php(298): yii\base\Component->__get('repassword')
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/helpers/BaseHtml.php(2244): yii\db\BaseActiveRecord->__get('repassword')
+#2 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/helpers/BaseHtml.php(1363): yii\helpers\BaseHtml::getAttributeValue(Object(admin\models\Admin), 'repassword')
+#3 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/helpers/BaseHtml.php(1477): yii\helpers\BaseHtml::activeInput('password', Object(admin\models\Admin), 'repassword', Array)
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/widgets/ActiveField.php(458): yii\helpers\BaseHtml::activePasswordInput(Object(admin\models\Admin), 'repassword', Array)
+#5 /Users/jony/Htdocs/gxtewang/apps/admin/views/admin/reset.php(35): yii\widgets\ActiveField->passwordInput(Array)
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(348): require('/Users/jony/Htd...')
+#7 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(257): yii\base\View->renderPhpFile('/Users/jony/Htd...', Array)
+#8 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/Users/jony/Htd...', Array, Object(admin\controllers\AdminController))
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(410): yii\base\View->render('reset', Array, Object(admin\controllers\AdminController))
+#10 /Users/jony/Htdocs/gxtewang/apps/admin/controllers/AdminController.php(235): yii\base\Controller->render('reset', Array)
+#11 [internal function]: admin\controllers\AdminController->actionReset()
+#12 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#13 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(181): yii\base\InlineAction->runWithParams(Array)
+#14 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('reset', Array)
+#15 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/Application.php(104): yii\base\Module->runAction('admin/reset', Array)
+#16 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 /Users/jony/Htdocs/gxtewang/public/admin/index.php(18): yii\base\Application->run()
+#18 {main}
+2020-12-15 08:49:54 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'sensorsdata2015jssdkcross' => '{\"distinct_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"$device_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"props\":{\"$latest_traffic_source_type\":\"直接流量\",\"$latest_referrer\":\"\",\"$latest_referrer_host\":\"\",\"$latest_search_keyword\":\"未取到值_直接打开\"}}'
+    '_ga' => 'GA1.2.916450568.1600856879'
+    'yii2-mall-admin' => '64ptr66k8fnbpk4av7se7hm5dq'
+    '_identity' => '25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a:2:{i:0;s:9:\"_identity\";i:1;s:48:\"[\"1\",\"52g8gXAF-fX5LXhFWd8SydHEO7-TdEGa\",2592000]\";}'
+    '_csrf' => '32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX\";}'
+    'advanced-admin' => 'ij0okq5v9bicfcfg2eek9pth62'
+    '_identity-admin' => '38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa:2:{i:0;s:15:\"_identity-admin\";i:1;s:48:\"[\"1\",\"9ji5K-tM4kbNszezagr2l-AbIx-CcU8W\",2592000]\";}'
+    '_csrf-admin' => 'a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a:2:{i:0;s:11:\"_csrf-admin\";i:1;s:32:\"97w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://admin.gxtewang.lvh.me/'
+    '__id' => '1'
+]
+
+$_SERVER = [
+    'USER' => 'jony'
+    'HOME' => '/Users/jony'
+    'HTTP_COOKIE' => 'sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22%24device_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; _ga=GA1.2.916450568.1600856879; yii2-mall-admin=64ptr66k8fnbpk4av7se7hm5dq; _identity=25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%2252g8gXAF-fX5LXhFWd8SydHEO7-TdEGa%22%2C2592000%5D%22%3B%7D; _csrf=32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX%22%3B%7D; advanced-admin=ij0okq5v9bicfcfg2eek9pth62; _identity-admin=38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa%3A2%3A%7Bi%3A0%3Bs%3A15%3A%22_identity-admin%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%229ji5K-tM4kbNszezagr2l-AbIx-CcU8W%22%2C2592000%5D%22%3B%7D; _csrf-admin=a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a%3A2%3A%7Bi%3A0%3Bs%3A11%3A%22_csrf-admin%22%3Bi%3A1%3Bs%3A32%3A%2297w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://admin.gxtewang.lvh.me/'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.60'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => 'admin.gxtewang.lvh.me'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '*.lvh.me'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '51709'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.19.5'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/Users/jony/Htdocs/gxtewang/public/admin'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/admin/reset.html'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/Users/jony/Htdocs/gxtewang/public/admin/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1608022194.3989
+    'REQUEST_TIME' => 1608022194
+]
+2020-12-15 09:18:08 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][error][yii\base\ErrorException:2] yii\base\ErrorException: Attempt to read property "name" on string in /Users/jony/Htdocs/gxtewang/apps/admin/models/AdminAuth.php:38
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/apps/admin/models/AdminAuth.php(38): yii\web\ErrorHandler->handleError(code: '2', message: ''Attempt to rea...', file: ''/Users/jony/Ht...', line: '38')
+#1 /Users/jony/Htdocs/gxtewang/apps/admin/views/auth/index.php(25): admin\models\AdminAuth->getParentName()
+#2 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/DataColumn.php(231): yii\web\View->{closure:/Users/jony/Htdocs/gxtewang/apps/admin/views/auth/index.php:24-26}(data: 'class admin\\mod...', ''admin_create'', '1', 'class yii\\grid\\...')
+#3 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/DataColumn.php(231): ::call_user_func:{/Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/DataColumn.php:231}(callback: 'class Closure {...', args: Array)
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/DataColumn.php(245): yii\grid\DataColumn->getDataCellValue(model: 'class admin\\mod...', key: ''admin_create'', index: '1')
+#5 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/Column.php(111): yii\grid\DataColumn->renderDataCellContent(model: 'class admin\\mod...', key: ''admin_create'', index: '1')
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/GridView.php(525): yii\grid\DataColumn->renderDataCell(model: 'class admin\\mod...', key: ''admin_create'', index: '1')
+#7 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/GridView.php(494): ijony\admin\grid\GridView->renderTableRow(model: 'class admin\\mod...', key: ''admin_create'', index: '1')
+#8 /Users/jony/Htdocs/gxtewang/vendor/jonneyless/yii2-admin-asset/grid/GridView.php(78): ijony\admin\grid\GridView->renderTableBody()
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/widgets/BaseListView.php(160): ijony\admin\grid\GridView->renderItems()
+#10 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/GridView.php(326): ijony\admin\grid\GridView->renderSection(name: ''{items}'')
+#11 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/widgets/BaseListView.php(135): ijony\admin\grid\GridView->renderSection(name: ''{items}'')
+#12 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/widgets/BaseListView.php(138): ijony\admin\grid\GridView->yii\widgets\{closure:/Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/widgets/BaseListView.php:134-138}(matches: '[0 => '{items}'...')
+#13 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/widgets/BaseListView.php(138): ::preg_replace_callback(pattern: ''/{\\\\w+}/'', callback: 'class Closure {...', subject: ''{items}'')
+#14 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/GridView.php(301): ijony\admin\grid\GridView->run()
+#15 /Users/jony/Htdocs/gxtewang/vendor/jonneyless/yii2-admin-asset/grid/GridView.php(48): ijony\admin\grid\GridView->run()
+#16 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Widget.php(141): ijony\admin\grid\GridView->run()
+#17 /Users/jony/Htdocs/gxtewang/apps/admin/views/auth/index.php(17): yii\base\Widget::widget(config: '['dataProvider'...')
+#18 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(348): yii\web\View->unknown()
+#19 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(257): yii\web\View->renderPhpFile(_file_: ''/Users/jony/Ht...', _params_: '['dataProvider'...')
+#20 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(156): yii\web\View->renderFile(viewFile: ''/Users/jony/Ht...', params: '['dataProvider'...', context: 'class admin\\con...')
+#21 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(410): yii\web\View->render(view: ''index'', params: '['dataProvider'...', context: 'class admin\\con...')
+#22 /Users/jony/Htdocs/gxtewang/apps/admin/controllers/AuthController.php(55): admin\controllers\AuthController->render(view: ''index'', params: '['dataProvider'...')
+#23 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/InlineAction.php(57): admin\controllers\AuthController->actionIndex()
+#24 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/InlineAction.php:57}(callback: '[0 => class adm...', args: '[]')
+#25 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(181): yii\base\InlineAction->runWithParams(params: '[]')
+#26 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(528): admin\controllers\AuthController->runAction(id: '''', params: '[]')
+#27 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/Application.php(104): yii\web\Application->runAction(route: ''auth'', params: '[]')
+#28 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Application->handleRequest(request: 'class yii\\web\\R...')
+#29 /Users/jony/Htdocs/gxtewang/public/admin/index.php(18): yii\web\Application->run()
+#30 {main}
+2020-12-15 09:18:08 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'sensorsdata2015jssdkcross' => '{\"distinct_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"$device_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"props\":{\"$latest_traffic_source_type\":\"直接流量\",\"$latest_referrer\":\"\",\"$latest_referrer_host\":\"\",\"$latest_search_keyword\":\"未取到值_直接打开\"}}'
+    '_ga' => 'GA1.2.916450568.1600856879'
+    'yii2-mall-admin' => '64ptr66k8fnbpk4av7se7hm5dq'
+    '_identity' => '25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a:2:{i:0;s:9:\"_identity\";i:1;s:48:\"[\"1\",\"52g8gXAF-fX5LXhFWd8SydHEO7-TdEGa\",2592000]\";}'
+    '_csrf' => '32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX\";}'
+    'advanced-admin' => 'ij0okq5v9bicfcfg2eek9pth62'
+    '_identity-admin' => '38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa:2:{i:0;s:15:\"_identity-admin\";i:1;s:48:\"[\"1\",\"9ji5K-tM4kbNszezagr2l-AbIx-CcU8W\",2592000]\";}'
+    '_csrf-admin' => 'a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a:2:{i:0;s:11:\"_csrf-admin\";i:1;s:32:\"97w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://admin.gxtewang.lvh.me/'
+    '__id' => '1'
+]
+
+$_SERVER = [
+    'USER' => 'jony'
+    'HOME' => '/Users/jony'
+    'HTTP_COOKIE' => 'sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22%24device_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; _ga=GA1.2.916450568.1600856879; yii2-mall-admin=64ptr66k8fnbpk4av7se7hm5dq; _identity=25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%2252g8gXAF-fX5LXhFWd8SydHEO7-TdEGa%22%2C2592000%5D%22%3B%7D; _csrf=32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX%22%3B%7D; advanced-admin=ij0okq5v9bicfcfg2eek9pth62; _identity-admin=38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa%3A2%3A%7Bi%3A0%3Bs%3A15%3A%22_identity-admin%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%229ji5K-tM4kbNszezagr2l-AbIx-CcU8W%22%2C2592000%5D%22%3B%7D; _csrf-admin=a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a%3A2%3A%7Bi%3A0%3Bs%3A11%3A%22_csrf-admin%22%3Bi%3A1%3Bs%3A32%3A%2297w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://admin.gxtewang.lvh.me/role/update.html?id=1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.60'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => 'admin.gxtewang.lvh.me'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '*.lvh.me'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '57321'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.19.5'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/Users/jony/Htdocs/gxtewang/public/admin'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/auth.html'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/Users/jony/Htdocs/gxtewang/public/admin/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1608023888.281
+    'REQUEST_TIME' => 1608023888
+]
+2020-12-15 09:19:10 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][error][yii\base\ErrorException:2] yii\base\ErrorException: Attempt to read property "name" on string in /Users/jony/Htdocs/gxtewang/apps/admin/models/AdminAuth.php:38
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/apps/admin/models/AdminAuth.php(38): yii\web\ErrorHandler->handleError(code: '2', message: ''Attempt to rea...', file: ''/Users/jony/Ht...', line: '38')
+#1 /Users/jony/Htdocs/gxtewang/apps/admin/views/auth/index.php(25): admin\models\AdminAuth->getParentName()
+#2 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/DataColumn.php(231): yii\web\View->{closure:/Users/jony/Htdocs/gxtewang/apps/admin/views/auth/index.php:24-26}(data: 'class admin\\mod...', ''admin_create'', '1', 'class yii\\grid\\...')
+#3 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/DataColumn.php(231): ::call_user_func:{/Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/DataColumn.php:231}(callback: 'class Closure {...', args: Array)
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/DataColumn.php(245): yii\grid\DataColumn->getDataCellValue(model: 'class admin\\mod...', key: ''admin_create'', index: '1')
+#5 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/Column.php(111): yii\grid\DataColumn->renderDataCellContent(model: 'class admin\\mod...', key: ''admin_create'', index: '1')
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/GridView.php(525): yii\grid\DataColumn->renderDataCell(model: 'class admin\\mod...', key: ''admin_create'', index: '1')
+#7 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/GridView.php(494): ijony\admin\grid\GridView->renderTableRow(model: 'class admin\\mod...', key: ''admin_create'', index: '1')
+#8 /Users/jony/Htdocs/gxtewang/vendor/jonneyless/yii2-admin-asset/grid/GridView.php(78): ijony\admin\grid\GridView->renderTableBody()
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/widgets/BaseListView.php(160): ijony\admin\grid\GridView->renderItems()
+#10 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/GridView.php(326): ijony\admin\grid\GridView->renderSection(name: ''{items}'')
+#11 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/widgets/BaseListView.php(135): ijony\admin\grid\GridView->renderSection(name: ''{items}'')
+#12 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/widgets/BaseListView.php(138): ijony\admin\grid\GridView->yii\widgets\{closure:/Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/widgets/BaseListView.php:134-138}(matches: '[0 => '{items}'...')
+#13 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/widgets/BaseListView.php(138): ::preg_replace_callback(pattern: ''/{\\\\w+}/'', callback: 'class Closure {...', subject: ''{items}'')
+#14 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/grid/GridView.php(301): ijony\admin\grid\GridView->run()
+#15 /Users/jony/Htdocs/gxtewang/vendor/jonneyless/yii2-admin-asset/grid/GridView.php(48): ijony\admin\grid\GridView->run()
+#16 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Widget.php(141): ijony\admin\grid\GridView->run()
+#17 /Users/jony/Htdocs/gxtewang/apps/admin/views/auth/index.php(17): yii\base\Widget::widget(config: '['dataProvider'...')
+#18 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(348): yii\web\View->unknown()
+#19 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(257): yii\web\View->renderPhpFile(_file_: ''/Users/jony/Ht...', _params_: '['dataProvider'...')
+#20 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/View.php(156): yii\web\View->renderFile(viewFile: ''/Users/jony/Ht...', params: '['dataProvider'...', context: 'class admin\\con...')
+#21 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(410): yii\web\View->render(view: ''index'', params: '['dataProvider'...', context: 'class admin\\con...')
+#22 /Users/jony/Htdocs/gxtewang/apps/admin/controllers/AuthController.php(55): admin\controllers\AuthController->render(view: ''index'', params: '['dataProvider'...')
+#23 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/InlineAction.php(57): admin\controllers\AuthController->actionIndex()
+#24 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/InlineAction.php(57): ::call_user_func_array:{/Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/InlineAction.php:57}(callback: '[0 => class adm...', args: '[]')
+#25 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(181): yii\base\InlineAction->runWithParams(params: '[]')
+#26 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(528): admin\controllers\AuthController->runAction(id: '''', params: '[]')
+#27 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/web/Application.php(104): yii\web\Application->runAction(route: ''auth'', params: '[]')
+#28 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Application->handleRequest(request: 'class yii\\web\\R...')
+#29 /Users/jony/Htdocs/gxtewang/public/admin/index.php(18): yii\web\Application->run()
+#30 {main}
+2020-12-15 09:19:10 [127.0.0.1][1][ij0okq5v9bicfcfg2eek9pth62][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'sensorsdata2015jssdkcross' => '{\"distinct_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"$device_id\":\"174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8\",\"props\":{\"$latest_traffic_source_type\":\"直接流量\",\"$latest_referrer\":\"\",\"$latest_referrer_host\":\"\",\"$latest_search_keyword\":\"未取到值_直接打开\"}}'
+    '_ga' => 'GA1.2.916450568.1600856879'
+    'yii2-mall-admin' => '64ptr66k8fnbpk4av7se7hm5dq'
+    '_identity' => '25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a:2:{i:0;s:9:\"_identity\";i:1;s:48:\"[\"1\",\"52g8gXAF-fX5LXhFWd8SydHEO7-TdEGa\",2592000]\";}'
+    '_csrf' => '32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX\";}'
+    'advanced-admin' => 'ij0okq5v9bicfcfg2eek9pth62'
+    '_identity-admin' => '38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa:2:{i:0;s:15:\"_identity-admin\";i:1;s:48:\"[\"1\",\"9ji5K-tM4kbNszezagr2l-AbIx-CcU8W\",2592000]\";}'
+    '_csrf-admin' => 'a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a:2:{i:0;s:11:\"_csrf-admin\";i:1;s:32:\"97w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => 'http://admin.gxtewang.lvh.me/'
+    '__id' => '1'
+]
+
+$_SERVER = [
+    'USER' => 'jony'
+    'HOME' => '/Users/jony'
+    'HTTP_COOKIE' => 'sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22%24device_id%22%3A%22174ba816e7c786-0403c7d92c8623-78600d52-1764000-174ba816e7d4a8%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; _ga=GA1.2.916450568.1600856879; yii2-mall-admin=64ptr66k8fnbpk4av7se7hm5dq; _identity=25eace0c66c79fbe770b804b5e0eb24895eeb5949561c1c777b432434fd832b7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%2252g8gXAF-fX5LXhFWd8SydHEO7-TdEGa%22%2C2592000%5D%22%3B%7D; _csrf=32b8ffc2d9d856f7fe402b84b69c93f40530e4659b7caa616c1d4b6fc5f9e024a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vNOA77eTmgYBVH2KfBMTmpj9p20GB6NX%22%3B%7D; advanced-admin=ij0okq5v9bicfcfg2eek9pth62; _identity-admin=38d2c95775f067127c8bb6ad1c5d29eb75ac82506b0add535ce885dbf2c72d7aa%3A2%3A%7Bi%3A0%3Bs%3A15%3A%22_identity-admin%22%3Bi%3A1%3Bs%3A48%3A%22%5B%221%22%2C%229ji5K-tM4kbNszezagr2l-AbIx-CcU8W%22%2C2592000%5D%22%3B%7D; _csrf-admin=a318dbf779a64e004b5aa6bd9887b3809e3b8ca91aa7c184838d00233d200f45a%3A2%3A%7Bi%3A0%3Bs%3A11%3A%22_csrf-admin%22%3Bi%3A1%3Bs%3A32%3A%2297w7-2ACOtlPXJbaeLFuaI-t9eWrLtbb%22%3B%7D'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://admin.gxtewang.lvh.me/role/update.html?id=1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.60'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_HOST' => 'admin.gxtewang.lvh.me'
+    'REDIRECT_STATUS' => '200'
+    'SERVER_NAME' => '*.lvh.me'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '57321'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'nginx/1.19.5'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REQUEST_SCHEME' => 'http'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'DOCUMENT_ROOT' => '/Users/jony/Htdocs/gxtewang/public/admin'
+    'DOCUMENT_URI' => '/index.php'
+    'REQUEST_URI' => '/auth.html'
+    'SCRIPT_NAME' => '/index.php'
+    'CONTENT_LENGTH' => ''
+    'CONTENT_TYPE' => ''
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'SCRIPT_FILENAME' => '/Users/jony/Htdocs/gxtewang/public/admin/index.php'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1608023950.7348
+    'REQUEST_TIME' => 1608023950
+]

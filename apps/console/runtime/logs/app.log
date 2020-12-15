@@ -1,0 +1,326 @@
+2020-12-15 07:40:30 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1698] Access denied for user 'root'@'localhost' in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/Connection.php:710
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/Connection.php(710): PDO->__construct('mysql:host=loca...', 'root', '', NULL)
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/Connection.php(631): yii\db\Connection->createPdoInstance()
+#2 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/Connection.php(1030): yii\db\Connection->open()
+#3 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/Connection.php(1017): yii\db\Connection->getMasterPdo()
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/Command.php(258): yii\db\Connection->getSlavePdo()
+#5 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/Command.php(1160): yii\db\Command->prepare(true)
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/Command.php(407): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/mysql/Schema.php(319): yii\db\Command->queryAll()
+#8 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/mysql/Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/Schema.php(758): yii\db\mysql\Schema->loadTableSchema('migration')
+#10 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/Schema.php(194): yii\db\Schema->getTableMetadata('{{%migration}}', 'schema', true)
+#11 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/controllers/MigrateController.php(211): yii\db\Schema->getTableSchema('{{%migration}}', true)
+#12 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(877): yii\console\controllers\MigrateController->getMigrationHistory(NULL)
+#13 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(169): yii\console\controllers\BaseMigrateController->getNewMigrations()
+#14 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#15 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#16 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(181): yii\base\InlineAction->runWithParams(Array)
+#17 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/Controller.php(184): yii\base\Controller->runAction('', Array)
+#18 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#19 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/Application.php(181): yii\base\Module->runAction('migrate', Array)
+#20 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/Application.php(148): yii\console\Application->runAction('migrate', Array)
+#21 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\console\Application->handleRequest(Object(yii\console\Request))
+#22 /Users/jony/Htdocs/gxtewang/yii(23): yii\base\Application->run()
+#23 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1698] Access denied for user 'root'@'localhost' in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/Connection.php:642
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/Connection.php(1030): yii\db\Connection->open()
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/Connection.php(1017): yii\db\Connection->getMasterPdo()
+#2 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/Command.php(258): yii\db\Connection->getSlavePdo()
+#3 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/Command.php(1160): yii\db\Command->prepare(true)
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/Command.php(407): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/mysql/Schema.php(319): yii\db\Command->queryAll()
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/mysql/Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/Schema.php(758): yii\db\mysql\Schema->loadTableSchema('migration')
+#8 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/db/Schema.php(194): yii\db\Schema->getTableMetadata('{{%migration}}', 'schema', true)
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/controllers/MigrateController.php(211): yii\db\Schema->getTableSchema('{{%migration}}', true)
+#10 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(877): yii\console\controllers\MigrateController->getMigrationHistory(NULL)
+#11 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(169): yii\console\controllers\BaseMigrateController->getNewMigrations()
+#12 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#13 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#14 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(181): yii\base\InlineAction->runWithParams(Array)
+#15 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/Controller.php(184): yii\base\Controller->runAction('', Array)
+#16 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#17 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/Application.php(181): yii\base\Module->runAction('migrate', Array)
+#18 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/Application.php(148): yii\console\Application->runAction('migrate', Array)
+#19 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\console\Application->handleRequest(Object(yii\console\Request))
+#20 /Users/jony/Htdocs/gxtewang/yii(23): yii\base\Application->run()
+#21 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1698
+    [2] => Access denied for user 'root'@'localhost'
+)
+
+2020-12-15 07:40:30 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'USER' => 'jony'
+    'TERMINAL_EMULATOR' => 'JetBrains-JediTerm'
+    'HOME' => '/Users/jony'
+    'COMMAND_MODE' => 'unix2003'
+    'LOGIN_SHELL' => '1'
+    'XPC_SERVICE_NAME' => '0'
+    'LOGNAME' => 'jony'
+    'TMPDIR' => '/var/folders/mz/jqdw5qrj0zz3_0dxll2w0mxr0000gn/T/'
+    'SHELL' => '/bin/zsh'
+    '__INTELLIJ_COMMAND_HISTFILE__' => '/Users/jony/Library/Application Support/JetBrains/PhpStorm2020.3/terminal/history/history-262'
+    'SECURITYSESSIONID' => '186a7'
+    'XPC_FLAGS' => '0x0'
+    'LaunchInstanceID' => 'EAA10D17-A8FD-45B4-8F38-C3E7CA02BDD6'
+    'LC_CTYPE' => 'zh_CN.UTF-8'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x19:0x34'
+    '__CFBundleIdentifier' => 'com.jetbrains.PhpStorm'
+    'PATH' => '/usr/local/opt/openjdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin'
+    'TERM' => 'xterm-256color'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.KR99Lk2txW/Listeners'
+    'SHLVL' => '1'
+    'PWD' => '/Users/jony/Htdocs/gxtewang'
+    'OLDPWD' => '/Users/jony/Htdocs/gxtewang'
+    'ZSH' => '/Users/jony/.oh-my-zsh'
+    'PAGER' => 'less'
+    'LESS' => '-R'
+    'LSCOLORS' => 'Gxfxcxdxbxegedabagacad'
+    'HOMEBREW_BOTTLE_DOMAIN' => 'https://mirrors.ustc.edu.cn/homebrew-bottles'
+    '_' => '/Users/jony/Htdocs/gxtewang/./yii'
+    'PHP_SELF' => './yii'
+    'SCRIPT_NAME' => './yii'
+    'SCRIPT_FILENAME' => './yii'
+    'PATH_TRANSLATED' => './yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1608018030.3765
+    'REQUEST_TIME' => 1608018030
+    'argv' => [
+        0 => './yii'
+        1 => 'migrate'
+    ]
+    'argc' => 2
+]
+2020-12-15 07:41:40 [-][-][-][error][yii\di\NotInstantiableException] ReflectionException: Class m021215_153000_init does not exist in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php:508
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(508): ReflectionClass->__construct('m021215_153000_...')
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(386): yii\di\Container->getDependencies('m021215_153000_...')
+#2 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(171): yii\di\Container->build('m021215_153000_...', Array, Array)
+#3 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('m021215_153000_...', Array, Array)
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/controllers/MigrateController.php(202): yii\BaseYii::createObject(Array)
+#5 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(726): yii\console\controllers\MigrateController->createMigration('m021215_153000_...')
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(202): yii\console\controllers\BaseMigrateController->migrateUp('m021215_153000_...')
+#7 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#8 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(181): yii\base\InlineAction->runWithParams(Array)
+#10 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/Controller.php(184): yii\base\Controller->runAction('', Array)
+#11 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#12 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/Application.php(181): yii\base\Module->runAction('migrate', Array)
+#13 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/Application.php(148): yii\console\Application->runAction('migrate', Array)
+#14 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\console\Application->handleRequest(Object(yii\console\Request))
+#15 /Users/jony/Htdocs/gxtewang/yii(23): yii\base\Application->run()
+#16 {main}
+
+Next yii\di\NotInstantiableException: Failed to instantiate component or class "m021215_153000_init". in /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php:510
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(386): yii\di\Container->getDependencies('m021215_153000_...')
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/di/Container.php(171): yii\di\Container->build('m021215_153000_...', Array, Array)
+#2 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/BaseYii.php(365): yii\di\Container->get('m021215_153000_...', Array, Array)
+#3 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/controllers/MigrateController.php(202): yii\BaseYii::createObject(Array)
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(726): yii\console\controllers\MigrateController->createMigration('m021215_153000_...')
+#5 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(202): yii\console\controllers\BaseMigrateController->migrateUp('m021215_153000_...')
+#6 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#7 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(181): yii\base\InlineAction->runWithParams(Array)
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/Controller.php(184): yii\base\Controller->runAction('', Array)
+#10 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#11 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/Application.php(181): yii\base\Module->runAction('migrate', Array)
+#12 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/Application.php(148): yii\console\Application->runAction('migrate', Array)
+#13 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\console\Application->handleRequest(Object(yii\console\Request))
+#14 /Users/jony/Htdocs/gxtewang/yii(23): yii\base\Application->run()
+#15 {main}
+2020-12-15 07:41:38 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'USER' => 'jony'
+    'TERMINAL_EMULATOR' => 'JetBrains-JediTerm'
+    'HOME' => '/Users/jony'
+    'COMMAND_MODE' => 'unix2003'
+    'LOGIN_SHELL' => '1'
+    'XPC_SERVICE_NAME' => '0'
+    'LOGNAME' => 'jony'
+    'TMPDIR' => '/var/folders/mz/jqdw5qrj0zz3_0dxll2w0mxr0000gn/T/'
+    'SHELL' => '/bin/zsh'
+    '__INTELLIJ_COMMAND_HISTFILE__' => '/Users/jony/Library/Application Support/JetBrains/PhpStorm2020.3/terminal/history/history-262'
+    'SECURITYSESSIONID' => '186a7'
+    'XPC_FLAGS' => '0x0'
+    'LaunchInstanceID' => 'EAA10D17-A8FD-45B4-8F38-C3E7CA02BDD6'
+    'LC_CTYPE' => 'zh_CN.UTF-8'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x19:0x34'
+    '__CFBundleIdentifier' => 'com.jetbrains.PhpStorm'
+    'PATH' => '/usr/local/opt/openjdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin'
+    'TERM' => 'xterm-256color'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.KR99Lk2txW/Listeners'
+    'SHLVL' => '1'
+    'PWD' => '/Users/jony/Htdocs/gxtewang'
+    'OLDPWD' => '/Users/jony/Htdocs/gxtewang'
+    'ZSH' => '/Users/jony/.oh-my-zsh'
+    'PAGER' => 'less'
+    'LESS' => '-R'
+    'LSCOLORS' => 'Gxfxcxdxbxegedabagacad'
+    'HOMEBREW_BOTTLE_DOMAIN' => 'https://mirrors.ustc.edu.cn/homebrew-bottles'
+    '_' => '/Users/jony/Htdocs/gxtewang/./yii'
+    'PHP_SELF' => './yii'
+    'SCRIPT_NAME' => './yii'
+    'SCRIPT_FILENAME' => './yii'
+    'PATH_TRANSLATED' => './yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1608018098.7467
+    'REQUEST_TIME' => 1608018098
+    'argv' => [
+        0 => './yii'
+        1 => 'migrate'
+    ]
+    'argc' => 2
+]
+2020-12-15 07:41:57 [-][-][-][error][Error] Error: Class 'admin\models\Admin' not found in /Users/jony/Htdocs/gxtewang/apps/console/migrations/m021215_153100_import_data.php:15
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(727): m021215_153100_import_data->up()
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(202): yii\console\controllers\BaseMigrateController->migrateUp('m021215_153100_...')
+#2 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#3 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(181): yii\base\InlineAction->runWithParams(Array)
+#5 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/Controller.php(184): yii\base\Controller->runAction('', Array)
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#7 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/Application.php(181): yii\base\Module->runAction('migrate', Array)
+#8 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/Application.php(148): yii\console\Application->runAction('migrate', Array)
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\console\Application->handleRequest(Object(yii\console\Request))
+#10 /Users/jony/Htdocs/gxtewang/yii(23): yii\base\Application->run()
+#11 {main}
+2020-12-15 07:41:55 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'USER' => 'jony'
+    'TERMINAL_EMULATOR' => 'JetBrains-JediTerm'
+    'HOME' => '/Users/jony'
+    'COMMAND_MODE' => 'unix2003'
+    'LOGIN_SHELL' => '1'
+    'XPC_SERVICE_NAME' => '0'
+    'LOGNAME' => 'jony'
+    'TMPDIR' => '/var/folders/mz/jqdw5qrj0zz3_0dxll2w0mxr0000gn/T/'
+    'SHELL' => '/bin/zsh'
+    '__INTELLIJ_COMMAND_HISTFILE__' => '/Users/jony/Library/Application Support/JetBrains/PhpStorm2020.3/terminal/history/history-262'
+    'SECURITYSESSIONID' => '186a7'
+    'XPC_FLAGS' => '0x0'
+    'LaunchInstanceID' => 'EAA10D17-A8FD-45B4-8F38-C3E7CA02BDD6'
+    'LC_CTYPE' => 'zh_CN.UTF-8'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x19:0x34'
+    '__CFBundleIdentifier' => 'com.jetbrains.PhpStorm'
+    'PATH' => '/usr/local/opt/openjdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin'
+    'TERM' => 'xterm-256color'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.KR99Lk2txW/Listeners'
+    'SHLVL' => '1'
+    'PWD' => '/Users/jony/Htdocs/gxtewang'
+    'OLDPWD' => '/Users/jony/Htdocs/gxtewang'
+    'ZSH' => '/Users/jony/.oh-my-zsh'
+    'PAGER' => 'less'
+    'LESS' => '-R'
+    'LSCOLORS' => 'Gxfxcxdxbxegedabagacad'
+    'HOMEBREW_BOTTLE_DOMAIN' => 'https://mirrors.ustc.edu.cn/homebrew-bottles'
+    '_' => '/Users/jony/Htdocs/gxtewang/./yii'
+    'PHP_SELF' => './yii'
+    'SCRIPT_NAME' => './yii'
+    'SCRIPT_FILENAME' => './yii'
+    'PATH_TRANSLATED' => './yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1608018115.6477
+    'REQUEST_TIME' => 1608018115
+    'argv' => [
+        0 => './yii'
+        1 => 'migrate'
+    ]
+    'argc' => 2
+]
+2020-12-15 08:05:30 [-][-][-][error][ArgumentCountError] ArgumentCountError: Too few arguments to function admin\models\Admin::setPassword(), 0 passed in /Users/jony/Htdocs/gxtewang/apps/console/migrations/m021215_153100_import_data.php on line 18 and exactly 1 expected in /Users/jony/Htdocs/gxtewang/apps/admin/models/Admin.php:107
+Stack trace:
+#0 /Users/jony/Htdocs/gxtewang/apps/console/migrations/m021215_153100_import_data.php(18): admin\models\Admin->setPassword()
+#1 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(727): m021215_153100_import_data->up()
+#2 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(202): yii\console\controllers\BaseMigrateController->migrateUp('m021215_153100_...')
+#3 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#4 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#5 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Controller.php(181): yii\base\InlineAction->runWithParams(Array)
+#6 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/Controller.php(184): yii\base\Controller->runAction('', Array)
+#7 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#8 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/Application.php(181): yii\base\Module->runAction('migrate', Array)
+#9 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/console/Application.php(148): yii\console\Application->runAction('migrate', Array)
+#10 /Users/jony/Htdocs/gxtewang/vendor/yiisoft/yii2/base/Application.php(392): yii\console\Application->handleRequest(Object(yii\console\Request))
+#11 /Users/jony/Htdocs/gxtewang/yii(23): yii\base\Application->run()
+#12 {main}
+2020-12-15 08:05:28 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'USER' => 'jony'
+    'TERMINAL_EMULATOR' => 'JetBrains-JediTerm'
+    'HOME' => '/Users/jony'
+    'COMMAND_MODE' => 'unix2003'
+    'LOGIN_SHELL' => '1'
+    'XPC_SERVICE_NAME' => '0'
+    'LOGNAME' => 'jony'
+    'TMPDIR' => '/var/folders/mz/jqdw5qrj0zz3_0dxll2w0mxr0000gn/T/'
+    'SHELL' => '/bin/zsh'
+    '__INTELLIJ_COMMAND_HISTFILE__' => '/Users/jony/Library/Application Support/JetBrains/PhpStorm2020.3/terminal/history/history-262'
+    'SECURITYSESSIONID' => '186a7'
+    'XPC_FLAGS' => '0x0'
+    'LaunchInstanceID' => 'EAA10D17-A8FD-45B4-8F38-C3E7CA02BDD6'
+    'LC_CTYPE' => 'zh_CN.UTF-8'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x19:0x34'
+    '__CFBundleIdentifier' => 'com.jetbrains.PhpStorm'
+    'PATH' => '/usr/local/opt/openjdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin'
+    'TERM' => 'xterm-256color'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.KR99Lk2txW/Listeners'
+    'SHLVL' => '1'
+    'PWD' => '/Users/jony/Htdocs/gxtewang'
+    'OLDPWD' => '/Users/jony/Htdocs/gxtewang'
+    'ZSH' => '/Users/jony/.oh-my-zsh'
+    'PAGER' => 'less'
+    'LESS' => '-R'
+    'LSCOLORS' => 'Gxfxcxdxbxegedabagacad'
+    'HOMEBREW_BOTTLE_DOMAIN' => 'https://mirrors.ustc.edu.cn/homebrew-bottles'
+    '_' => '/Users/jony/Htdocs/gxtewang/./yii'
+    'PHP_SELF' => './yii'
+    'SCRIPT_NAME' => './yii'
+    'SCRIPT_FILENAME' => './yii'
+    'PATH_TRANSLATED' => './yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1608019528.0061
+    'REQUEST_TIME' => 1608019528
+    'argv' => [
+        0 => './yii'
+        1 => 'migrate'
+    ]
+    'argc' => 2
+]

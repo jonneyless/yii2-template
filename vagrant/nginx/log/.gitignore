@@ -1,0 +1,5 @@
+# nginx logs
+admin-access.log
+admin-error.log
+home-access.log
+home-error.log

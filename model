@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+commonFile="./common/models/$2.php"
+adminFile="./apps/admin/models/$2.php"
+homeFile="./apps/home/models/$2.php"
+# 生成数据模型，参数1为表名，参数2为模型名。文件保存路径为 common\models
+./yii gii/model --ns="common\\models" --generateLabelsFromComments=1 --useTablePrefix=1 --tableName=$1 --modelClass=$2
+if [ ! -f $adminFile ]; then
+    cp $commonFile $adminFile
+    sed -i "" -e '/^ \* .*/d' -e 's/^ \*$/ \* \{\@inheritdoc\}/g' -e '3s/common/admin/g' -e "s/\\\yii\\\db\\\ActiveRecord/\\\common\\\models\\\\$2/g" -e "/    /d" "$adminFile"
+fi
+if [ ! -f $homeFile ]; then
+    cp $commonFile $homeFile
+    sed -i "" -e '/^ \* .*/d' -e 's/^ \*$/ \* \{\@inheritdoc\}/g' -e '3s/common/home/g' -e "s/\\\yii\\\db\\\ActiveRecord/\\\common\\\models\\\\$2/g" -e "/    /d" "$homeFile"
+fi

@@ -1,0 +1,37 @@
+body {
+    font-size: 14px;
+}
+
+.has-success .input-group-btn:last-child > .btn,
+.has-success .input-group-btn:last-child > .btn-group,
+.has-error .input-group-btn:last-child > .btn,
+.has-error .input-group-btn:last-child > .btn-group {
+    margin-left: 0px;
+}
+
+.form-group.has-error .help-block-error {
+    margin-bottom: 0;
+    line-height: 15px;
+}
+
+.form-group.has-error {
+    margin-bottom: 5px;
+}
+
+.input-group-addon {
+    border-radius: 3px;
+}
+
+.input-group-addon {
+    border-radius: 3px;
+}
+
+.radio, .checkbox {
+    display: block;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.radio-inline, .checkbox-inline {
+    display: inline-block;
+}
