@@ -3,7 +3,7 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=rds1;dbname=gxtewang',
+            'dsn' => 'mysql:host=localhost;dbname=gxtewang',
             'username' => 'root',
             'password' => 'yangzhou07',
             'charset' => 'utf8',
